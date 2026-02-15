@@ -3,23 +3,23 @@
 
 /* --- RESET E VARIÁVEIS (A base do design) --- */
 :root {
-    --bg-color: #fcfcfc;
+    --bg-color: #e8e3d4;
     --text-color: #333333;
-    --accent-color: #252525;
-    --link-color: #0056b3;
+    --accent-color: #191a1c;
+    --link-color: #0038ba;
     --font-main: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     --max-width: 1100px;
     
-    /* Tons de Cinza */
-    --primary: #2a2a2a;
-    --secondary: #4a4a4a;
-    --accent-red: #5a5a5a;
-    --accent-light: #7a7a7a;
-    --text-primary: #2a2a2a;
-    --text-secondary: #666666;
+    /* Tons de Design */
+    --primary: #191a1c;
+    --secondary: #515f7c;
+    --accent-red: #0038ba;
+    --accent-light: #515f7c;
+    --text-primary: #191a1c;
+    --text-secondary: #515f7c;
     --border: #d0d0d0;
     --bg-light: #f5f5f5;
-    --superblack: #000000;
+    --superblack: #191a1c;
     
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
@@ -35,6 +35,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
 }
 
 body {
@@ -53,30 +57,77 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #eee;
+    gap: 60px;
+    background-color: #191a1c;
+    width: 100%;
+}
+
+header .header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 0 0 auto;
 }
 
 header h1 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    letter-spacing: -1px;
+    font-family: 'Orator Std', monospace;
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: #515f7c;
+    margin: 0;
+    line-height: 1.4;
+}
+
+header h1 a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+header h1 a:hover {
+    color: #0038ba;
+}
+
+header h1 a:visited {
+    color: #515f7c;
+}
+
+header h1 a:active {
+    color: #515f7c;
+}
+
+header nav {
+    margin-left: auto;
+    flex: 0 0 auto;
 }
 
 header nav ul {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 30px;
 }
 
 header nav a {
     text-decoration: none;
-    color: var(--text-color);
-    font-weight: 500;
-    transition: color 0.3s;
+    color: #515f7c;
+    font-family: 'Orator Std', monospace;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    font-weight: 400;
+    transition: color 0.3s ease;
 }
 
 header nav a:hover {
-    color: var(--link-color);
+    color: #0038ba;
+}
+
+header nav a:visited {
+    color: #515f7c;
+}
+
+header nav a:active {
+    color: #515f7c;
 }
 
 /* --- LAYOUTS GERAIS --- */
@@ -115,47 +166,91 @@ h2 {
     text-align: justify;
 }
 
-/* --- GRID DE PROJETOS --- */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.project-card {
-    background: white;
-    border: 1px solid #eee;
-    border-radius: 8px;
-    overflow: hidden;
-    transition: transform 0.3s ease;
-}
-
-.project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-}
-
-.project-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.project-info {
-    padding: 20px;
-}
-
 /* --- RODAPÉ --- */
 footer {
+    background: #191a1c;
+    color: #515f7c;
+    padding: 0;
+    margin-top: auto;
+    width: 100%;
+    border-top: 1px solid #333;
+}
+
+.footer-wrapper {
+    width: 100%;
+}
+
+.footer-simple {
+    max-width: 1450px;
+    margin: 0 auto;
+    padding: 15px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 40px;
+    align-items: center;
+}
+
+.footer-left {
+    flex: 0 0 auto;
+}
+
+.signature-image {
+    width: 100%;
+    height: auto;
+    max-width: 70px;
+    max-height: 35px;
+    object-fit: contain;
+    display: block;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.signature-image:hover {
+    opacity: 1;
+}
+
+.footer-center {
     text-align: center;
-    padding: 2rem;
-    background-color: #f4f4f4;
+}
+
+.footer-center p {
     font-size: 0.9rem;
-    color: #666;
-    margin-top: 40px;
+    color: #515f7c;
+    margin: 0;
+    letter-spacing: 0.5px;
+    font-family: 'Orator Std', monospace;
+}
+
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: right;
+}
+
+.footer-right a {
+    color: #515f7c;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.footer-right a:hover {
+    color: #0038ba;
 }
 
 /* --- MOBILE (Celular) --- */
+@media (max-width: 1024px) {
+    .footer-simple {
+        gap: 30px;
+        padding: 30px;
+    }
+
+    .footer-right {
+        text-align: right;
+    }
+}
+
 @media (max-width: 768px) {
     .content-grid {
         grid-template-columns: 1fr;
@@ -165,85 +260,65 @@ footer {
         flex-direction: column;
         gap: 15px;
     }
-}
 
-/* --- CONTATO --- */
-.contato-container {
-    display: flex;
-    max-width: 900px;
-    margin: 60px auto;
-    align-items: center;
-    gap: 40px;
-}
-
-.contato-visual {
-    background-color: #222;
-    width: 400px;
-    height: 400px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.icon-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    color: white;
-    font-size: 2rem;
-    text-align: center;
-}
-
-.contato-info {
-    font-family: sans-serif;
-    color: #333;
-    line-height: 1.8;
-}
-
-.contato-info p {
-    margin-bottom: 25px;
-    font-size: 1.1rem;
-}
-
-.contato-info a {
-    color: #333;
-    word-break: break-all;
-}
-
-.nav-footer-buttons {
-    background-color: #f0f0f0;
-    padding: 60px 0;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    width: 100%;
-}
-
-.btn-dark {
-    background-color: #222;
-    color: white;
-    text-decoration: none;
-    padding: 20px 40px;
-    min-width: 120px;
-    text-align: center;
-    font-weight: bold;
-    transition: opacity 0.3s;
-}
-
-.btn-dark:hover {
-    opacity: 0.8;
-}
-
-@media (max-width: 768px) {
-    .contato-container {
-        flex-direction: column;
+    header nav {
+        margin-left: 0;
     }
-    .contato-visual {
-        width: 100%;
-        height: 300px;
+
+    .footer-simple {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 25px;
+        text-align: center;
     }
-    .nav-footer-buttons {
-        flex-wrap: wrap;
+
+    .footer-left {
+        display: flex;
+        justify-content: center;
+    }
+
+    .footer-center p {
+        font-size: 0.85rem;
+    }
+
+    .footer-right {
+        text-align: center;
+        align-items: center;
+    }
+
+    .footer-right a {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 1.5rem 4%;
+        gap: 10px;
+    }
+
+    header nav ul {
+        gap: 15px;
+        font-size: 0.85rem;
+    }
+
+    .footer-simple {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 20px;
+    }
+
+    .signature-image {
+        max-width: 80px;
+        max-height: 40px;
+    }
+
+    .footer-center p {
+        font-size: 0.8rem;
+    }
+
+    .footer-right a {
+        font-size: 0.8rem;
     }
 }
 
@@ -366,13 +441,13 @@ footer {
 
 .timeline-point:hover .point-circle {
     r: 18;
-    filter: drop-shadow(0 4px 12px rgba(90, 90, 90, 0.2));
+    filter: drop-shadow(0 4px 12px rgba(0, 56, 186, 0.2));
 }
 
 .timeline-point.active .point-circle {
     fill: var(--accent-red);
     r: 20;
-    filter: drop-shadow(0 0 16px rgba(90, 90, 90, 0.4));
+    filter: drop-shadow(0 0 16px rgba(0, 56, 186, 0.4));
 }
 
 .point-label {
@@ -525,7 +600,7 @@ footer {
 .skill-card:hover {
     border-color: var(--accent-red);
     transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(90, 90, 90, 0.08);
+    box-shadow: 0 8px 24px rgba(0, 56, 186, 0.08);
 }
 
 .skill-header {
@@ -549,7 +624,7 @@ footer {
     font-size: 0.85rem;
     font-weight: 600;
     color: var(--accent-red);
-    background: rgba(90, 90, 90, 0.08);
+    background: rgba(0, 56, 186, 0.08);
     padding: 4px 10px;
     border-radius: 6px;
     letter-spacing: 0.2px;
@@ -596,7 +671,7 @@ footer {
 }
 
 .skill-card:hover .skill-bar {
-    box-shadow: 0 0 12px rgba(90, 90, 90, 0.3);
+    box-shadow: 0 0 12px rgba(0, 56, 186, 0.3);
 }
 
 /* ===== RESPONSIVO ===== */

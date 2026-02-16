@@ -10,7 +10,7 @@ export const projects = [
     year: 2025,
     status: 'projeto',
     description: 'Projeto realizado para a disciplina de Construção IV, mas com detalhamento interior individual, realizado para a conclusão do curso método cura.',
-    content: 'O projeto conta com dois banheiros, um área de lazer superior e um jardim interno, além de um espaço de trabalho amplo e iluminado.',
+    content: 'O projeto conta com dois banheiros, um área de lazer superior e um jardim interno, além de um espaço de trabalho amplo e iluminado. Projeto feito no sketchup, com renderização no enscape, e pós-edição no photoshop.',
     // Array de mídia para a galeria
     gallery: [
       {
@@ -54,7 +54,7 @@ export const projects = [
     year: 2025,
     status: 'concluído',
     description: 'Documentação e montagem do projeto Log Paper House, de Shigeru Ban, na Bienal de Arquitetura de São Paulo.',
-    content: 'O projeto é uma residência temporária construída com papelão e engradados de cerveja, projetada para ser sustentável e de baixo custo.',
+    content: 'O projeto é uma residência temporária construída com papelão e engradados de cerveja, projetada para ser sustentável e de baixo custo. Projeto modelado no sketchup, com renderização no 3DS Max/Arnold, e pós-edição no photoshop.',
     gallery: [
       {
         id: 'pdf-01',
@@ -125,7 +125,7 @@ export const projects = [
     year: 2024,
     status: 'concluído',
     description: 'Edifício de uso misto localizado em São Paulo, com áreas comerciais no térreo e residenciais nos andares superiores.',
-    content: 'O projeto foi realizado na disciplina de Projeto II.',
+    content: 'Projeto realizado na disciplina de Projeto II. Feito no Archicad e renderizado no D5 Render.',
     gallery: [            
       {
         id: 'img-01',
@@ -159,171 +159,249 @@ export const projects = [
   },
   {
     id: 5,
-    slug: 'projeto-05',
-    title: 'Nome do Projeto 05',
-    image: '/img/objetos/projeto-05.jpg',
-    thumbnail: '/img/objetos/projeto-05.jpg',
-    category: 'habitação',
+    slug: 'ed-solaris',
+    title: 'Edifício Solaris',
+    image: '/img/arquitetura/05_EdConstrução/unnamed.jpg',
+    thumbnail: '/img/arquitetura/05_EdConstrução/unnamed.jpg',
+    category: 'coorporativo',
     location: 'são paulo - sp',
-    year: 2023,
-    status: 'construído',
-    description: 'Descrição detalhada do projeto 05.',
-    content: 'Conteúdo completo sobre o projeto...',
-    gallery: []
+    year: 2025,
+    status: 'projeto',
+    description: 'Edifício corporativo com restaurante na cobertura.',
+    content: 'Projeto realizado na disciplina de Construção IV, explorando técnicas elementares de construção.',
+    gallery: [
+      {
+        id: 'pdf-01',
+        type: 'pdf',
+        src: '/img/arquitetura/05_EdConstrução/building_logo.pdf',
+        title: 'Logo',
+        poster: '/img/arquitetura/05_EdConstrução/building_logo.pdf'
+      },
+      {
+        id: 'pdf-02',
+        type: 'pdf',
+        src: '/img/arquitetura/05_EdConstrução/Cobertura-A4 (5).pdf',
+        title: 'Planta da Cobertura',
+        poster: '/img/arquitetura/05_EdConstrução/Cobertura-A4 (5).pdf'
+      }
+    ]
   },
   {
     id: 6,
-    slug: 'projeto-06',
-    title: 'Nome do Projeto 06',
-    image: '/img/objetos/projeto-06.jpg',
-    thumbnail: '/img/objetos/projeto-06.jpg',
-    category: 'equipamento público',
-    location: 'rio de janeiro - rj',
-    year: 2021,
-    status: 'concluído',
-    description: 'Descrição detalhada do projeto 06.',
-    content: 'Conteúdo completo sobre o projeto...',
-    gallery: []
+    slug: 'casa-do-lago',
+    title: 'Casa do Lago',
+    image: '/img/arquitetura/06_casa_do_lago/2_ps_pp.png',
+    thumbnail: '/img/arquitetura/06_casa_do_lago/2_ips.png',
+    category: 'habitação unifamiliar',
+    location: 'uberlândia - mg',
+    year: 2026,
+    status: 'projeto',
+    description: 'Projeto realizado para portfólio, de uma casa de campo localizada às margens de um lago, com grandes janelas e integração com a natureza.',
+    content: 'Projeto idelizado com desenhos à mão, modelado inicialmente no rhino, para idelização do espaço, com os terrenos e o lago traçados geoespacialmente pelo QGIS, e com os renders interiores feitos no 3DS Max, junto ao Corona Renderer, com os renders pós-editados no photoshop. Tempo de projeto: 2 semanas.',
+    gallery: [
+      {
+        id: 'pdf-01',
+        type: 'pdf',
+        src: '/img/arquitetura/06_casa_do_lago/rascunhos de projeto.pdf',
+        title: 'rascunhos de projeto',
+        poster: '/img/arquitetura/06_Casa_do_Lago/rascunhos de projeto.pdf'
+      },
+      {
+        id: 'img-01',
+        type: 'image',
+        src: '/img/arquitetura/06_casa_do_lago/2.png',
+        title: 'Render Exterior',
+        thumbnail: '/img/arquitetura/06_casa_do_lago/2.png'
+      },
+      {
+        id: 'img-02',
+        type: 'image',
+        src: '/img/arquitetura/06_casa_do_lago/2_ip.png',
+        title: 'Render Interior',
+        thumbnail: '/img/arquitetura/06_casa_do_lago/2_ip.png'
+      },
+      {
+        id: 'img-03',
+        type: 'image',
+        src: '/img/arquitetura/06_casa_do_lago/2_ips.png',
+        title: 'Render Conceitual',
+        thumbnail: '/img/arquitetura/06_casa_do_lago/2_ips.png'
+      },
+      {
+        id: 'pdf-02',
+        type: 'pdf',
+        src: '/img/arquitetura/06_casa_do_lago/01_plantas/01_plantas.pdf',
+        title: 'Plantas de Projeto',
+        thumbnail: '/img/arquitetura/06_casa_do_lago/01_plantas/01_plantas.pdf'
+      },
+      {
+        id: 'pdf-03',
+        type: 'pdf',
+        src: '/img/arquitetura/06_casa_do_lago/02_cortes/02_cortes.pdf',
+        title: 'Cortes de Projeto',
+        thumbnail: '/img/arquitetura/06_casa_do_lago/02_cortes/02_cortes.pdf'
+      }
+    ]
   },
   {
     id: 7,
-    slug: 'projeto-07',
-    title: 'Nome do Projeto 07',
-    image: '/img/objetos/projeto-07.jpg',
-    thumbnail: '/img/objetos/projeto-07.jpg',
-    category: 'infra-estrutura',
-    location: 'curitiba - pr',
-    year: 2022,
-    status: 'projeto',
-    description: 'Descrição detalhada do projeto 07.',
-    content: 'Conteúdo completo sobre o projeto...',
-    gallery: []
+    slug: 'desenhos',
+    title: 'Desenhos',
+    image: '/img/desenhos/Untitled-1.png',
+    thumbnail: '/img/desenhos/Untitled-2.png',
+    category: 'desenhos',
+    location: '-',
+    year: 2024-2026,
+    status: 'concluído',
+    description: 'Alguns desenhos aleatórios, feitos à mão, outros digitais...',
+    content: 'Conteúdo completo sobre os desenhos...',
+    gallery: [
+      {
+        id: 'img-01',
+        type: 'image',
+        src: '/img/desenhos/Untitled-1.png',
+        title: 'Desenho 01',
+        thumbnail: '/img/desenhos/Untitled-1.png'
+      },
+            {
+        id: 'img-02',
+        type: 'image',
+        src: '/img/desenhos/cow-1.png',
+        title: 'Desenho 02',
+        thumbnail: '/img/desenhos/cow-1.png'
+      },
+            {
+        id: 'img-03',
+        type: 'image',
+        src: '/img/desenhos/salmao.png',
+        title: 'Desenho 03',
+        thumbnail: '/img/desenhos/salmao.png'
+      },
+            {
+        id: 'img-04',
+        type: 'image',
+        src: '/img/desenhos/Untitled-2.png',
+        title: 'Desenho 04',
+        thumbnail: '/img/desenhos/Untitled-2.png'
+      }
+    ]
   },
   {
     id: 8,
-    slug: 'projeto-08',
-    title: 'Nome do Projeto 08',
-    image: '/img/objetos/projeto-08.jpg',
-    thumbnail: '/img/objetos/projeto-08.jpg',
-    category: 'intervenção urbana',
-    location: 'salvador - ba',
-    year: 2024,
-    status: 'em obra',
-    description: 'Descrição detalhada do projeto 08.',
-    content: 'Conteúdo completo sobre o projeto...',
-    gallery: []
+    slug: 'red-blue-chair',
+    title: 'Red Blue Chair',
+    image: '/img/objetos/02_REDblueChair/render_5.jpg',
+    thumbnail: '/img/objetos/02_REDblueChair/render_5.jpg',
+    category: 'Objeto 3D',
+    location: '-',
+    year: 2025,
+    status: 'concluído',
+    description: 'Modelagem 3D de uma cadeira inspirada na obra de Gerrit Rietveld.',
+    content: 'Feita no 3DS Max, com renderização no Arnold.', 
+    gallery: [
+      {
+        id: 'img-01',
+        type: 'image',
+        src: '/img/objetos/02_REDblueChair/render_3.jpg',
+        title: 'Render 01',
+        thumbnail: '/img/objetos/02_REDblueChair/render_3.jpg'
+      }
+    ]
   },
   {
     id: 9,
-    slug: 'projeto-09',
-    title: 'Nome do Projeto 09',
-    image: '/img/objetos/projeto-09.jpg',
-    thumbnail: '/img/objetos/projeto-09.jpg',
-    category: 'habitação',
-    location: 'recife - pe',
-    year: 2023,
+    slug: 'MBWassily',
+    title: 'MBWassily',
+    image: '/img/objetos/03_MBWassily/02_renders/1.jpg',
+    thumbnail: '/img/objetos/03_MBWassily/02_renders/1.jpg',
+    category: 'Objeto 3D',
+    location: '-',
+    year: 2026,
     status: 'concluído',
-    description: 'Descrição detalhada do projeto 09.',
-    content: 'Conteúdo completo sobre o projeto...',
-    gallery: []
+    description: 'Modelagem 3D de uma cadeira inspirada na obra de Marcel Breuer.',
+    content: 'Feita no 3DS Max, com renderização no Arnold.', 
+    gallery: [
+            {
+        id: 'img-01',
+        type: 'image',
+        src: '/img/objetos/03_MBWassily/02_renders/2.jpg',
+        title: 'Render 01',
+        thumbnail: '/img/objetos/03_MBWassily/02_renders/2.jpg'
+      }
+    ]
   },
   {
     id: 10,
-    slug: 'projeto-10',
-    title: 'Nome do Projeto 10',
-    image: '/img/objetos/projeto-10.jpg',
-    thumbnail: '/img/objetos/projeto-10.jpg',
-    category: 'serviços',
-    location: 'manaus - am',
-    year: 2021,
-    status: 'projeto',
-    description: 'Descrição detalhada do projeto 10.',
-    content: 'Conteúdo completo sobre o projeto...',
-    gallery: []
+    slug: 'Postal-Mail-Texture-Painting',
+    title: 'Postal Mail Texture Painting',
+    image: '/img/objetos/04_Post_Mail_Texture_Painting/1.png',
+    thumbnail: '/img/objetos/04_Post_Mail_Texture_Painting/1.png',
+    category: 'Objeto 3D',
+    location: '-',
+    year: 2025,
+    status: 'concluído',
+    description: 'Modelagem 3D de um objeto inspirado em uma caixa de correio, com texturização detalhada.',
+    content: 'Feita no Blender, renderização no Cycles, com texturas criadas no Substance Painter.',
+    gallery: [
+      {
+      id: 'vid-01',
+      type: 'video',
+      src: '/img/objetos/04_Post_Mail_Texture_Painting/05_DaVinci/final_07.mp4',
+      title: 'Cena de Movimento',
+      thumbnail: '/img/objetos/04_Post_Mail_Texture_Painting/1.png'
+      }
+    ]
   },
   {
     id: 11,
-    slug: 'projeto-11',
-    title: 'Nome do Projeto 11',
-    image: '/img/objetos/projeto-11.jpg',
-    thumbnail: '/img/objetos/projeto-11.jpg',
-    category: 'equipamento público',
-    location: 'fortaleza - ce',
-    year: 2022,
+    slug: 'EeroSaarinenWomb',
+    title: 'Eero Saarinen Womb',
+    image: '/img/objetos/05_EeroSaarinenWomb/02_renders/1.jpg',
+    thumbnail: '/img/objetos/05_EeroSaarinenWomb/02_renders/1.jpg',
+    category: 'Objeto 3D',
+    location: '-',
+    year: 2026,
     status: 'concluído',
-    description: 'Descrição detalhada do projeto 11.',
-    content: 'Conteúdo completo sobre o projeto...',
-    gallery: []
+    description: 'Modelagem 3D de um objeto inspirado na obra de Eero Saarinen.',
+    content: 'Feita no 3DS Max, com renderização no Arnold.',
+    gallery: [
+      {
+      id: 'img-01',
+      type: 'image',
+      src: '/img/objetos/05_EeroSaarinenWomb/02_renders/2.jpg',
+      title: 'Render 01',
+      thumbnail: '/img/objetos/05_EeroSaarinenWomb/02_renders/2.jpg'
+      },
+      {
+      id: 'img-02',
+      type: 'image',
+      src: '/img/objetos/05_EeroSaarinenWomb/02_renders/3.jpg',
+      title: 'Render 02',
+      thumbnail: '/img/objetos/05_EeroSaarinenWomb/02_renders/3.jpg'
+      }
+    ]
   },
   {
     id: 12,
-    slug: 'projeto-12',
-    title: 'Nome do Projeto 12',
-    image: '/img/objetos/projeto-12.jpg',
-    thumbnail: '/img/objetos/projeto-12.jpg',
-    category: 'projeto urbano',
-    location: 'belém - pa',
-    year: 2024,
-    status: 'em desenvolvimento',
-    description: 'Descrição detalhada do projeto 12.',
-    content: 'Conteúdo completo sobre o projeto...',
-    gallery: []
-  },
-  {
-    id: 13,
-    slug: 'projeto-13',
-    title: 'Nome do Projeto 13',
-    image: '/img/objetos/projeto-13.jpg',
-    thumbnail: '/img/objetos/projeto-13.jpg',
-    category: 'habitação',
-    location: 'goiânia - go',
-    year: 2023,
+    slug: 'earphone',
+    title: 'Earphone',
+    image: '/img/objetos/07_Earphone/02_renders/1.jpg',
+    thumbnail: '/img/objetos/07_Earphone/02_renders/1.jpg',
+    category: 'Objeto 3D',
+    location: '-',
+    year: 2026,
     status: 'concluído',
-    description: 'Descrição detalhada do projeto 13.',
-    content: 'Conteúdo completo sobre o projeto...',
-    gallery: []
-  },
-  {
-    id: 14,
-    slug: 'projeto-14',
-    title: 'Nome do Projeto 14',
-    image: '/img/objetos/projeto-14.jpg',
-    thumbnail: '/img/objetos/projeto-14.jpg',
-    category: 'infra-estrutura',
-    location: 'maceió - al',
-    year: 2021,
-    status: 'projeto',
-    description: 'Descrição detalhada do projeto 14.',
-    content: 'Conteúdo completo sobre o projeto...',
-    gallery: []
-  },
-  {
-    id: 15,
-    slug: 'projeto-15',
-    title: 'Nome do Projeto 15',
-    image: '/img/objetos/projeto-15.jpg',
-    thumbnail: '/img/objetos/projeto-15.jpg',
-    category: 'intervenção urbana',
-    location: 'joão pessoa - pb',
-    year: 2022,
-    status: 'em obra',
-    description: 'Descrição detalhada do projeto 15.',
-    content: 'Conteúdo completo sobre o projeto...',
-    gallery: []
-  },
-  {
-    id: 16,
-    slug: 'projeto-16',
-    title: 'Nome do Projeto 16',
-    image: '/img/objetos/projeto-16.jpg',
-    thumbnail: '/img/objetos/projeto-16.jpg',
-    category: 'serviços',
-    location: 'natal - rn',
-    year: 2024,
-    status: 'concluído',
-    description: 'Descrição detalhada do projeto 16.',
-    content: 'Conteúdo completo sobre o projeto...',
-    gallery: []
+    description: 'Modelagem 3D de um fone de ouvido.',
+    content: 'Feita no 3DS Max, renderização no Arnold.',
+    gallery: [
+      {
+        id: 'img-01',
+        type: 'image',
+        src: '/img/objetos/07_Earphone/02_renders/2.jpg',
+        title: 'Render 01',
+        thumbnail: '/img/objetos/07_Earphone/02_renders/2.jpg'
+      }
+    ]
   },
 ]
 

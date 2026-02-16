@@ -41,6 +41,7 @@ export default function RootLayout({ children }) {
               
               <div className="footer-center">
                 <p>Uberlândia-MG ©2026</p>
+                <p>São Paulo-SP</p>
               </div>
               
               <div className="footer-right">

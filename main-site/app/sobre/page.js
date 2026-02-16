@@ -55,19 +55,10 @@ export default function Sobre() {
   const certificates = [
     {
       id: 1,
-      name: 'Certificado de Proficiência em Blender',
-      issuer: 'Plataforma XYZ',
-      date: 'Março 2023',
-      pdfUrl: '/docs/certificado-blender.pdf',
-      thumbnail: '/img/certificados/thumb-blender.png', // opcional
-    },
-    {
-      id: 2,
-      name: 'Curso Avançado de Modelagem 3D',
-      issuer: 'Escola de Design',
-      date: 'Janeiro 2023',
-      pdfUrl: '/docs/certificado-modelagem.pdf',
-      thumbnail: '/img/certificados/thumb-modelagem.png',
+      name: 'Certificado Método Cura',
+      issuer: 'Curso Cura',
+      date: '28 de Setembro de 2025',
+      pdfUrl: '/docs/certificado-metodo-cura.pdf',
     },
   ];
 

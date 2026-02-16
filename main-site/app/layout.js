@@ -1,4 +1,6 @@
-import './globals.css'
+import '@/styles/globals.css'
+import '@/styles/projetos.css'
+import '@/styles/projeto-detalhes.css'
 import Link from 'next/link'
 
 export default function RootLayout({ children }) {

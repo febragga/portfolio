@@ -1,15 +1,27 @@
+'use client';
+import Link from 'next/link'
+
 export default function Home() {
   return (
-    <main style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
-      <div className="hero">
-        <h2 style={{ border: 'none', fontSize: '3rem' }}>Arquitetura & Design</h2>
-        <p style={{ fontSize: '1.2rem', color: '#666', maxWidth: '600px', margin: '0 auto 30px auto' }}>
-          Explorando a intersecção entre o espaço físico e a tecnologia digital.
-        </p>
-        <a href="/projetos" style={{ background: '#252525', color: 'white', padding: '10px 25px', textDecoration: 'none', borderRadius: '5px' }}>
-          Ver Projetos
-        </a>
-      </div>
+    <main style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <Link href="/projetos" style={{ 
+  width: '150px',
+  height: '150px',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  textDecoration: 'none', 
+  color: '#191a1c', 
+  fontWeight: 500, 
+  border: '1px solid #191a1c', 
+  borderRadius: '4px', 
+  transition: 'all 0.3s ease'
+}}
+  onMouseEnter={(e) => { e.target.style.background = '#191a1c'; e.target.style.color = '#fff'; }}
+  onMouseLeave={(e) => { e.target.style.background = 'transparent'; e.target.style.color = '#191a1c'; }}
+>
+  Ver Projetos
+</Link>
     </main>
   )
 }

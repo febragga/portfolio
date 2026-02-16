@@ -70,6 +70,62 @@
   border-radius: 4px;
 }
 
+/* Container e placeholder do PDF */
+.pdf-viewer-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pdf-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px;
+  text-align: center;
+}
+
+.pdf-icon-large {
+  font-size: 4rem;
+  opacity: 0.7;
+}
+
+.pdf-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #191a1c;
+  margin: 0;
+  letter-spacing: 0.2px;
+  max-width: 300px;
+}
+
+.pdf-open-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: #0038ba;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+.pdf-open-button:hover {
+  background: #0028aa;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 56, 186, 0.25);
+}
+
 /* Controles de visualização */
 .gallery-controls {
   display: flex;
@@ -361,11 +417,15 @@
     aspect-ratio: 4 / 3;
   }
 
-  .pdf-icon {
-    font-size: 2rem;
+  .pdf-icon-large {
+    font-size: 3rem;
   }
 
-  .pdf-link {
+  .pdf-name {
+    font-size: 1rem;
+  }
+
+  .pdf-open-button {
     padding: 10px 20px;
     font-size: 0.9rem;
   }

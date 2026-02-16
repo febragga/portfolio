@@ -77,11 +77,20 @@ export default function ProjectGallery({ gallery }) {
       
       case 'pdf':
         return (
-          <iframe
-            src={`${src}#toolbar=1&navpanes=0`}
-            className="viewer-pdf"
-            title={title}
-          />
+          <div className="pdf-viewer-container">
+            <div className="pdf-placeholder">
+              <div className="pdf-icon-large">📄</div>
+              <p className="pdf-name">{title}</p>
+              <a
+                href={src}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="pdf-open-button"
+              >
+                Abrir PDF
+              </a>
+            </div>
+          </div>
         )
       
       default:

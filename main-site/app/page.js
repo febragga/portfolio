@@ -24,7 +24,6 @@ export default function YourComponent() {
         background: '#191a1c',
         zIndex: 999,
         transition: 'all 0.5s ease',
-        marginLeft: '-20px',
       }} />
 
       <Link href="/projetos" style={{ 
@@ -39,7 +38,7 @@ export default function YourComponent() {
         border: '1px solid #191a1c', 
         borderRadius: '4px', 
         transition: 'all 0.3s ease',
-        marginLeft: '-53px',
+        marginLeft: '0px',
         background: isExpanded ? '#191a1c' : 'transparent',
         color: isExpanded ? '#fff' : '#191a1c',
         cursor: 'pointer',

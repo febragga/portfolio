@@ -208,7 +208,7 @@ export default function Sobre() {
                       className="overlay-button"
                       title={`Abrir ${cert.name}`}
                     >
-                      👁️ Visualizar
+                      Visualizar
                     </a>
                   </div>
                 </div>

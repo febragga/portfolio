@@ -6,6 +6,11 @@ import '@/styles/sobre.css';
 export default function Sobre() {
   const [selectedPoint, setSelectedPoint] = useState(null);
 
+  //No page.js, cada item tem um campo imageMode que pode ser:
+  //'contain' → Logo/imagem horizontal aparece inteira com espaço branco (IFTM, UFSCar)
+  //'cover' → Imagem preenche e corta as bordas (USP - padrão)
+  //'stretch' → Distorce pra preencher (não recomendado)
+
   const trajectoryData = [
     {
       id: 0,
@@ -13,7 +18,9 @@ export default function Sobre() {
       title: 'IFTM',
       subtitle: 'Computação Gráfica',
       description: 'Nasci em Uberlândia. Em 2018 realizei o exame para ingresso no Curso de Computação Gráfica integrado ao Ensino Médio do Instituto Federal do Triângulo Mineiro (IFTM), formando-se em 2020. Foram anos de muito aprendizado em programação, modelagem 3D e design.',
-      position: 15
+      position: 15,
+      imageUrl: '/database/images/iftm-horizontal-uberlandiacentro.png',
+      imageMode: 'contain' // 'cover' | 'contain' | 'stretch'
     },
     {
       id: 1,
@@ -21,7 +28,9 @@ export default function Sobre() {
       title: 'UFSCar',
       subtitle: 'Física',
       description: 'Após o ensino médio, cursei brevemente física na Universidade Federal de São Carlos (UFSCar). Em 2023, percebi que sentia falta das atividades técnicas que realizava durante o curso, como programação e modelagem 3D.',
-      position: 50
+      position: 50,
+      imageUrl: '/database/images/Ufscar-logo.png',
+      imageMode: 'contain' // 'cover' | 'contain' | 'stretch'
     },
     {
       id: 2,
@@ -29,7 +38,9 @@ export default function Sobre() {
       title: 'USP',
       subtitle: 'Arquitetura e Urbanismo',
       description: 'Sendo assim, ingressei na Universidade de São Paulo (USP), na capital, onde resido e curso atualmente Arquitetura e Urbanismo. Uma decisão que combina minha paixão por design com a visão de futuro.',
-      position: 85
+      position: 85,
+      imageUrl: '/database/images/profile_photo1.jpeg',
+      imageMode: 'cover' // 'cover' | 'contain' | 'stretch'
     }
   ];
 
@@ -116,6 +127,16 @@ export default function Sobre() {
         {selectedPoint !== null && (
           <div className="trajectory-panel">
             <div className="panel-accent"></div>
+            <div className="panel-image-container">
+              {trajectoryData[selectedPoint].imageUrl && (
+                <img 
+                  src={trajectoryData[selectedPoint].imageUrl} 
+                  alt={trajectoryData[selectedPoint].title}
+                  className="panel-image"
+                  style={{ objectFit: trajectoryData[selectedPoint].imageMode }}
+                />
+              )}
+            </div>
             <div className="panel-content">
               <div className="panel-year">{trajectoryData[selectedPoint].year}</div>
               <h3 className="panel-title">{trajectoryData[selectedPoint].title}</h3>

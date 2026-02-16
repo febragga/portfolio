@@ -13,7 +13,7 @@
 .back-link {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 0px;
   color: #0038ba;
   text-decoration: none;
   font-size: 0.95rem;

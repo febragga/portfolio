@@ -23,7 +23,7 @@ export default function YourComponent() {
         height: isExpanded ? '200vmax' : '0px',
         background: '#191a1c',
         zIndex: 999,
-        transition: 'all 1s ease',
+        transition: 'all 0.5s ease',
         marginLeft: '-20px',
       }} />
 

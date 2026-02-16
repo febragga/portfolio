@@ -13,7 +13,7 @@ export default async function ProjetoDetail({ params }) {
   }
 
   // Encontrar próximo e anterior projeto
-  const currentIndex = projects.findIndex(p => p.slug === params.slug)
+  const currentIndex = projects.findIndex(p => p.slug === slug)
   const previousProject = currentIndex > 0 ? projects[currentIndex - 1] : null
   const nextProject = currentIndex < projects.length - 1 ? projects[currentIndex + 1] : null
 

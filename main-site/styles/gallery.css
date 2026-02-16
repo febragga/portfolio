@@ -12,14 +12,6 @@
   margin-bottom: 40px;
 }
 
-.gallery-accent {
-  width: 4px;
-  height: 36px;
-  background: linear-gradient(180deg, #191a1c 0%, #515f7c 100%);
-  border-radius: 2px;
-  flex-shrink: 0;
-}
-
 .gallery-title {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 1.6rem;
@@ -364,10 +356,6 @@
   .gallery-header {
     gap: 12px;
     margin-bottom: 25px;
-  }
-
-  .gallery-accent {
-    height: 28px;
   }
 
   .gallery-title {

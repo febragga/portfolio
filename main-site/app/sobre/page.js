@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import '@/styles/sobre.css';
 
 export default function Sobre() {
   const [selectedPoint, setSelectedPoint] = useState(null);
@@ -50,9 +51,29 @@ export default function Sobre() {
     { name: 'After Effects', proficiency: 72 },
   ];
 
+  // Array de certificados - você pode preencher com seus dados
+  const certificates = [
+    {
+      id: 1,
+      name: 'Certificado de Proficiência em Blender',
+      issuer: 'Plataforma XYZ',
+      date: 'Março 2023',
+      pdfUrl: '/docs/certificado-blender.pdf',
+      thumbnail: '/img/certificados/thumb-blender.png', // opcional
+    },
+    {
+      id: 2,
+      name: 'Curso Avançado de Modelagem 3D',
+      issuer: 'Escola de Design',
+      date: 'Janeiro 2023',
+      pdfUrl: '/docs/certificado-modelagem.pdf',
+      thumbnail: '/img/certificados/thumb-modelagem.png',
+    },
+  ];
+
   return (
     <main className="sobre-section">
-      {/* HEADER */}
+      {/* HEADER - TRAJETÓRIA */}
       <div className="sobre-header">
         <div className="title-accent"></div>
         <h2 className="section-title">Minha Trajetória</h2>
@@ -143,6 +164,68 @@ export default function Sobre() {
             </div>
           ))}
         </div>
+      </div>
+
+      {/* CERTIFICADOS SECTION */}
+      <div className="certificates-section">
+        <div className="certificates-header">
+          <div className="certificates-accent"></div>
+          <h3 className="certificates-title">Certificados & Credenciais</h3>
+        </div>
+
+        {certificates.length > 0 ? (
+          <div className="certificates-grid">
+            {certificates.map((cert, index) => (
+              <div 
+                key={cert.id}
+                className="certificate-card"
+                style={{ '--delay': `${index * 0.05}s` }}
+              >
+                {/* Thumbnail */}
+                <div className="certificate-thumbnail">
+                  {cert.thumbnail ? (
+                    <img src={cert.thumbnail} alt={cert.name} />
+                  ) : (
+                    <div className="certificate-icon">📄</div>
+                  )}
+                  <div className="certificate-overlay">
+                    <a
+                      href={cert.pdfUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="overlay-button"
+                      title={`Abrir ${cert.name}`}
+                    >
+                      👁️ Visualizar
+                    </a>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="certificate-content">
+                  <h4 className="certificate-name">{cert.name}</h4>
+                  <p className="certificate-issuer">{cert.issuer}</p>
+                  <span className="certificate-date">{cert.date}</span>
+                  
+                  {/* Botão de download */}
+                  <a
+                    href={cert.pdfUrl}
+                    download
+                    className="certificate-link"
+                    title={`Baixar ${cert.name}`}
+                  >
+                    ⬇️ Baixar PDF
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="certificates-empty">
+            <div className="empty-icon">📜</div>
+            <p className="empty-text">Nenhum certificado adicionado ainda</p>
+          </div>
+        )}
       </div>
     </main>
   );

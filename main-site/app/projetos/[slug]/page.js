@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { projects, getProjectBySlug } from '@/lib/projects'
-import ProjectGallery from '@/components/ProjectGallery'
+import ProjectGallery from '@/components/projectgallery'
 import '@/styles/projeto-detalhes.css'
 
 export default async function ProjetoDetail({ params }) {

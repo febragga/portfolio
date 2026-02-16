@@ -1,7 +1,7 @@
-
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { projects, getProjectBySlug } from '@/lib/projects'
+import ProjectGallery from '@/components/ProjectGallery'
 import '@/styles/projeto-detalhes.css'
 
 export default async function ProjetoDetail({ params }) {
@@ -71,6 +71,9 @@ export default async function ProjetoDetail({ params }) {
             <p>{project.content}</p>
           </div>
         </div>
+
+        {/* GALERIA DO PROJETO */}
+        <ProjectGallery gallery={project.gallery} />
       </div>
 
       {/* NAVEGAÇÃO ANTERIOR/PRÓXIMO */}

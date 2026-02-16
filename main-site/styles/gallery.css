@@ -1,0 +1,425 @@
+/* ===== GALERIA DO PROJETO ===== */
+.projeto-gallery {
+  margin-top: 60px;
+  border-top: 1px solid #e0e0e0;
+  padding-top: 60px;
+}
+
+.gallery-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.gallery-accent {
+  width: 4px;
+  height: 36px;
+  background: linear-gradient(180deg, #191a1c 0%, #515f7c 100%);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.gallery-title {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #191a1c;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+/* Gallery Container */
+.gallery-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* Main Viewer */
+.gallery-viewer {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f5f5f5;
+  aspect-ratio: 16 / 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.viewer-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Imagem */
+.viewer-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Vídeo */
+.viewer-video {
+  width: 100%;
+  height: 100%;
+}
+
+/* PDF Viewer */
+.viewer-pdf {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.pdf-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  color: #515f7c;
+}
+
+.pdf-icon {
+  font-size: 3rem;
+  color: #0038ba;
+}
+
+.pdf-info {
+  text-align: center;
+}
+
+.pdf-info p {
+  margin: 5px 0;
+  font-size: 0.95rem;
+}
+
+.pdf-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 15px;
+  padding: 12px 24px;
+  background: #191a1c;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.pdf-link:hover {
+  background: #0038ba;
+  transform: translateY(-2px);
+}
+
+/* Controles de visualização */
+.gallery-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+.gallery-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.info-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #191a1c;
+  letter-spacing: 0.2px;
+}
+
+.info-type {
+  font-size: 0.85rem;
+  color: #515f7c;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.type-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  background: rgba(0, 56, 186, 0.1);
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #0038ba;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.gallery-navigation {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-button {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #d0d0d0;
+  background: white;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0038ba;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.nav-button:hover:not(:disabled) {
+  background: #0038ba;
+  color: white;
+  border-color: #0038ba;
+  transform: translateY(-2px);
+}
+
+.nav-button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* Thumbnails Grid */
+.gallery-thumbnails {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 15px;
+}
+
+.thumbnail-item {
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  aspect-ratio: 1;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+}
+
+.thumbnail-item:hover {
+  border-color: #0038ba;
+  transform: translateY(-2px);
+}
+
+.thumbnail-item.active {
+  border-color: #0038ba;
+  box-shadow: 0 4px 12px rgba(0, 56, 186, 0.2);
+}
+
+/* Thumbnail Image */
+.thumbnail-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Thumbnail Icon (para vídeo e PDF) */
+.thumbnail-icon {
+  position: absolute;
+  font-size: 1.5rem;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.thumbnail-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.thumbnail-item:hover .thumbnail-overlay {
+  opacity: 1;
+}
+
+/* Badge de Tipo */
+.thumbnail-type {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  padding: 3px 8px;
+  background: rgba(0, 56, 186, 0.9);
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 700;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+/* Counter */
+.gallery-counter {
+  font-size: 0.9rem;
+  color: #515f7c;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+/* Empty State */
+.gallery-empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: #515f7c;
+}
+
+.empty-icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  opacity: 0.5;
+}
+
+.empty-text {
+  font-size: 1rem;
+  letter-spacing: 0.2px;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 968px) {
+  .gallery-container {
+    gap: 30px;
+  }
+
+  .viewer-content {
+    aspect-ratio: 16 / 9;
+  }
+
+  .gallery-thumbnails {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 12px;
+  }
+
+  .thumbnail-item {
+    min-height: 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .projeto-gallery {
+    margin-top: 40px;
+    padding-top: 40px;
+  }
+
+  .gallery-title {
+    font-size: 1.4rem;
+  }
+
+  .gallery-controls {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .gallery-navigation {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .gallery-thumbnails {
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    gap: 10px;
+  }
+
+  .thumbnail-item {
+    min-height: 70px;
+  }
+
+  .gallery-viewer {
+    aspect-ratio: 16 / 12;
+  }
+}
+
+@media (max-width: 480px) {
+  .projeto-gallery {
+    margin-top: 30px;
+    padding-top: 30px;
+  }
+
+  .gallery-header {
+    gap: 12px;
+    margin-bottom: 25px;
+  }
+
+  .gallery-accent {
+    height: 28px;
+  }
+
+  .gallery-title {
+    font-size: 1.2rem;
+  }
+
+  .gallery-controls {
+    gap: 12px;
+  }
+
+  .info-title {
+    font-size: 0.95rem;
+  }
+
+  .info-type {
+    font-size: 0.8rem;
+  }
+
+  .gallery-counter {
+    font-size: 0.85rem;
+  }
+
+  .nav-button {
+    width: 36px;
+    height: 36px;
+    font-size: 0.9rem;
+  }
+
+  .gallery-thumbnails {
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    gap: 8px;
+  }
+
+  .thumbnail-item {
+    min-height: 60px;
+  }
+
+  .thumbnail-type {
+    font-size: 0.6rem;
+    padding: 2px 6px;
+  }
+
+  .gallery-viewer {
+    aspect-ratio: 4 / 3;
+  }
+
+  .pdf-icon {
+    font-size: 2rem;
+  }
+
+  .pdf-link {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}

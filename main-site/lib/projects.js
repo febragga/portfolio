@@ -11,6 +11,44 @@ export const projects = [
     status: 'construído',
     description: 'Descrição detalhada do projeto 01.',
     content: 'Conteúdo completo sobre o projeto...',
+    // Array de mídia para a galeria
+    gallery: [
+      {
+        id: 'img-01',
+        type: 'image',
+        src: '/img/arquitetura/01_Estúdio_A/render_01.png',
+        title: 'Vista frontal',
+        thumbnail: '/img/arquitetura/01_Estúdio_A/render_01.png'
+      },
+      {
+        id: 'img-02',
+        type: 'image',
+        src: '/img/arquitetura/01_Estúdio_A/render_02.png',
+        title: 'Vista lateral',
+        thumbnail: '/img/arquitetura/01_Estúdio_A/render_02.png'
+      },
+      {
+        id: 'video-01',
+        type: 'video',
+        src: '/videos/projeto-01-walkthrough.mp4',
+        poster: '/img/arquitetura/01_Estúdio_A/render_04.png',
+        title: 'Walkthrough 3D'
+      },
+      {
+        id: 'pdf-01',
+        type: 'pdf',
+        src: '/docs/projeto-01-planta.pdf',
+        title: 'Planta Baixa',
+        thumbnail: '/img/arquitetura/01_Estúdio_A/planta-thumb.png'
+      },
+      {
+        id: 'img-03',
+        type: 'image',
+        src: '/img/arquitetura/01_Estúdio_A/render_03.png',
+        title: 'Detalhe interior',
+        thumbnail: '/img/arquitetura/01_Estúdio_A/render_03.png'
+      }
+    ]
   },
   {
     id: 2,
@@ -24,6 +62,7 @@ export const projects = [
     status: 'concluído',
     description: 'Descrição detalhada do projeto 02.',
     content: 'Conteúdo completo sobre o projeto...',
+    gallery: []
   },
   {
     id: 3,
@@ -37,6 +76,7 @@ export const projects = [
     status: 'projeto',
     description: 'Descrição detalhada do projeto 03.',
     content: 'Conteúdo completo sobre o projeto...',
+    gallery: []
   },
   {
     id: 4,
@@ -50,6 +90,7 @@ export const projects = [
     status: 'em desenvolvimento',
     description: 'Descrição detalhada do projeto 04.',
     content: 'Conteúdo completo sobre o projeto...',
+    gallery: []
   },
   {
     id: 5,
@@ -63,6 +104,7 @@ export const projects = [
     status: 'construído',
     description: 'Descrição detalhada do projeto 05.',
     content: 'Conteúdo completo sobre o projeto...',
+    gallery: []
   },
   {
     id: 6,
@@ -76,6 +118,7 @@ export const projects = [
     status: 'concluído',
     description: 'Descrição detalhada do projeto 06.',
     content: 'Conteúdo completo sobre o projeto...',
+    gallery: []
   },
   {
     id: 7,
@@ -89,6 +132,7 @@ export const projects = [
     status: 'projeto',
     description: 'Descrição detalhada do projeto 07.',
     content: 'Conteúdo completo sobre o projeto...',
+    gallery: []
   },
   {
     id: 8,
@@ -102,6 +146,7 @@ export const projects = [
     status: 'em obra',
     description: 'Descrição detalhada do projeto 08.',
     content: 'Conteúdo completo sobre o projeto...',
+    gallery: []
   },
   {
     id: 9,
@@ -115,6 +160,7 @@ export const projects = [
     status: 'concluído',
     description: 'Descrição detalhada do projeto 09.',
     content: 'Conteúdo completo sobre o projeto...',
+    gallery: []
   },
   {
     id: 10,
@@ -128,6 +174,7 @@ export const projects = [
     status: 'projeto',
     description: 'Descrição detalhada do projeto 10.',
     content: 'Conteúdo completo sobre o projeto...',
+    gallery: []
   },
   {
     id: 11,
@@ -138,9 +185,10 @@ export const projects = [
     category: 'equipamento público',
     location: 'fortaleza - ce',
     year: 2022,
-    status: 'construído',
+    status: 'concluído',
     description: 'Descrição detalhada do projeto 11.',
     content: 'Conteúdo completo sobre o projeto...',
+    gallery: []
   },
   {
     id: 12,
@@ -154,6 +202,7 @@ export const projects = [
     status: 'em desenvolvimento',
     description: 'Descrição detalhada do projeto 12.',
     content: 'Conteúdo completo sobre o projeto...',
+    gallery: []
   },
   {
     id: 13,
@@ -167,6 +216,7 @@ export const projects = [
     status: 'concluído',
     description: 'Descrição detalhada do projeto 13.',
     content: 'Conteúdo completo sobre o projeto...',
+    gallery: []
   },
   {
     id: 14,
@@ -180,6 +230,7 @@ export const projects = [
     status: 'projeto',
     description: 'Descrição detalhada do projeto 14.',
     content: 'Conteúdo completo sobre o projeto...',
+    gallery: []
   },
   {
     id: 15,
@@ -193,6 +244,7 @@ export const projects = [
     status: 'em obra',
     description: 'Descrição detalhada do projeto 15.',
     content: 'Conteúdo completo sobre o projeto...',
+    gallery: []
   },
   {
     id: 16,
@@ -201,11 +253,12 @@ export const projects = [
     image: '/img/objetos/projeto-16.jpg',
     thumbnail: '/img/objetos/projeto-16.jpg',
     category: 'serviços',
-    location: 'natalência - rn',
+    location: 'natal - rn',
     year: 2024,
-    status: 'construído',
+    status: 'concluído',
     description: 'Descrição detalhada do projeto 16.',
     content: 'Conteúdo completo sobre o projeto...',
+    gallery: []
   },
 ]
 

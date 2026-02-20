@@ -234,7 +234,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 80px;
+  gap: 50px;
   padding: 40px;
   animation: fadeIn 1.5s ease-out;
 }
@@ -255,6 +255,7 @@
   align-items: center;
   justify-content: center;
   animation: signatureAppear 1.5s ease-out 0.3s both;
+  width: 100%;
 }
 
 .home-signature {
@@ -285,9 +286,10 @@
 .navigation-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 40px;
-  max-width: 400px;
-  width: 100%;
+  gap: 35px;
+  width: 175px;
+  margin: 0 auto;
+  align-self: center;
 }
 
 .nav-square {
@@ -379,9 +381,13 @@
     height: 100px;
   }
 
+  .home-content {
+    gap: 45px;
+  }
+
   .navigation-grid {
     gap: 30px;
-    max-width: 350px;
+    width: 280px;
   }
 
   .shape-1,
@@ -398,7 +404,7 @@
   }
 
   .home-content {
-    gap: 60px;
+    gap: 45px;
     padding: 30px 20px;
   }
 
@@ -408,7 +414,7 @@
 
   .navigation-grid {
     gap: 25px;
-    max-width: 300px;
+    width: 250px;
   }
 
   .shape-1 {
@@ -438,7 +444,7 @@
   }
 
   .home-content {
-    gap: 50px;
+    gap: 35px;
     padding: 20px 15px;
   }
 
@@ -448,7 +454,7 @@
 
   .navigation-grid {
     gap: 20px;
-    max-width: 250px;
+    width: 220px;
   }
 
   .grid-line {

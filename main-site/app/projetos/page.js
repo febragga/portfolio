@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { projects, getCategories, getLocations, getYears, getStatus } from '@/lib/projects'
 import '@/styles/projetos.css'
@@ -19,6 +19,81 @@ export default function Projetos() {
     year: false,
     status: false,
   })
+
+  const canvasRef = useRef(null)
+
+  useEffect(() => {
+    const canvas = canvasRef.current
+    if (!canvas) return
+
+    const ctx = canvas.getContext('2d')
+    let animationFrameId
+
+    const setCanvasSize = () => {
+      canvas.width = window.innerWidth
+      canvas.height = window.innerHeight
+    }
+
+    setCanvasSize()
+    window.addEventListener('resize', setCanvasSize)
+
+    const particles = []
+    const particleCount = 30
+
+    for (let i = 0; i < particleCount; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        size: Math.random() * 1.5 + 0.5,
+        speedX: (Math.random() - 0.5) * 0.3,
+        speedY: (Math.random() - 0.5) * 0.3,
+        opacity: Math.random() * 0.2 + 0.05,
+      })
+    }
+
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+      particles.forEach((particle) => {
+        particle.x += particle.speedX
+        particle.y += particle.speedY
+
+        if (particle.x < 0 || particle.x > canvas.width) particle.speedX *= -1
+        if (particle.y < 0 || particle.y > canvas.height) particle.speedY *= -1
+
+        ctx.beginPath()
+        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2)
+        ctx.fillStyle = `rgba(0, 56, 186, ${particle.opacity})`
+        ctx.fill()
+      })
+
+      particles.forEach((particle, i) => {
+        particles.slice(i + 1).forEach((otherParticle) => {
+          const dx = particle.x - otherParticle.x
+          const dy = particle.y - otherParticle.y
+          const distance = Math.sqrt(dx * dx + dy * dy)
+
+          if (distance < 100) {
+            ctx.beginPath()
+            ctx.moveTo(particle.x, particle.y)
+            ctx.lineTo(otherParticle.x, otherParticle.y)
+            ctx.strokeStyle = `rgba(0, 56, 186, ${0.08 * (1 - distance / 100)})`
+            ctx.lineWidth = 0.5
+            ctx.stroke()
+          }
+        })
+      })
+
+      animationFrameId = requestAnimationFrame(animate)
+    }
+
+    animate()
+
+    return () => {
+      window.removeEventListener('resize', setCanvasSize)
+      cancelAnimationFrame(animationFrameId)
+    }
+  }, [])
 
   // Filtrar projetos baseado nos filtros selecionados
   const filteredProjects = useMemo(() => {
@@ -49,16 +124,23 @@ export default function Projetos() {
     setFilters({ category: null, location: null, year: null, status: null })
   }
 
+  const hasActiveFilters = filters.category || filters.location || filters.year || filters.status
+
   return (
     <main className="projetos-container">
+      <canvas ref={canvasRef} className="projetos-canvas" />
+      
       <div className="projetos-wrapper">
         {/* SIDEBAR DE FILTROS */}
         <aside className="filters-sidebar">
           <div className="filters-header">
-            <h3>Filtros</h3>
-            {(filters.category || filters.location || filters.year || filters.status) && (
+            <div className="filter-title-visual">
+              <div className="filter-square" />
+              <span className="filter-label">Filtros</span>
+            </div>
+            {hasActiveFilters && (
               <button className="clear-filters" onClick={clearFilters}>
-                Limpar
+                <span className="clear-icon">×</span>
               </button>
             )}
           </div>
@@ -69,18 +151,25 @@ export default function Projetos() {
               className="filter-title"
               onClick={() => toggleFilter('category')}
             >
+              <div className="filter-indicator" />
               <span>Tipologia</span>
-              <span className={`toggle-icon ${openFilters.category ? 'open' : ''}`}>▼</span>
+              <div className={`filter-toggle ${openFilters.category ? 'open' : ''}`}>
+                <div className="toggle-line toggle-line-1" />
+                <div className="toggle-line toggle-line-2" />
+              </div>
             </button>
             {openFilters.category && (
               <div className="filter-options">
                 {getCategories().map(cat => (
-                  <label key={cat} className="filter-option">
-                    <input
-                      type="checkbox"
-                      checked={filters.category === cat}
-                      onChange={() => handleFilterChange('category', cat)}
-                    />
+                  <label key={cat} className={`filter-option ${filters.category === cat ? 'active' : ''}`}>
+                    <div className="custom-checkbox">
+                      <input
+                        type="checkbox"
+                        checked={filters.category === cat}
+                        onChange={() => handleFilterChange('category', cat)}
+                      />
+                      <div className="checkbox-visual" />
+                    </div>
                     <span>{cat}</span>
                   </label>
                 ))}
@@ -94,18 +183,25 @@ export default function Projetos() {
               className="filter-title"
               onClick={() => toggleFilter('location')}
             >
+              <div className="filter-indicator" />
               <span>Localização</span>
-              <span className={`toggle-icon ${openFilters.location ? 'open' : ''}`}>▼</span>
+              <div className={`filter-toggle ${openFilters.location ? 'open' : ''}`}>
+                <div className="toggle-line toggle-line-1" />
+                <div className="toggle-line toggle-line-2" />
+              </div>
             </button>
             {openFilters.location && (
               <div className="filter-options">
                 {getLocations().map(loc => (
-                  <label key={loc} className="filter-option">
-                    <input
-                      type="checkbox"
-                      checked={filters.location === loc}
-                      onChange={() => handleFilterChange('location', loc)}
-                    />
+                  <label key={loc} className={`filter-option ${filters.location === loc ? 'active' : ''}`}>
+                    <div className="custom-checkbox">
+                      <input
+                        type="checkbox"
+                        checked={filters.location === loc}
+                        onChange={() => handleFilterChange('location', loc)}
+                      />
+                      <div className="checkbox-visual" />
+                    </div>
                     <span>{loc}</span>
                   </label>
                 ))}
@@ -119,18 +215,25 @@ export default function Projetos() {
               className="filter-title"
               onClick={() => toggleFilter('year')}
             >
+              <div className="filter-indicator" />
               <span>Ano</span>
-              <span className={`toggle-icon ${openFilters.year ? 'open' : ''}`}>▼</span>
+              <div className={`filter-toggle ${openFilters.year ? 'open' : ''}`}>
+                <div className="toggle-line toggle-line-1" />
+                <div className="toggle-line toggle-line-2" />
+              </div>
             </button>
             {openFilters.year && (
               <div className="filter-options">
                 {getYears().map(year => (
-                  <label key={year} className="filter-option">
-                    <input
-                      type="checkbox"
-                      checked={filters.year === year}
-                      onChange={() => handleFilterChange('year', year)}
-                    />
+                  <label key={year} className={`filter-option ${filters.year === year ? 'active' : ''}`}>
+                    <div className="custom-checkbox">
+                      <input
+                        type="checkbox"
+                        checked={filters.year === year}
+                        onChange={() => handleFilterChange('year', year)}
+                      />
+                      <div className="checkbox-visual" />
+                    </div>
                     <span>{year}</span>
                   </label>
                 ))}
@@ -144,18 +247,25 @@ export default function Projetos() {
               className="filter-title"
               onClick={() => toggleFilter('status')}
             >
+              <div className="filter-indicator" />
               <span>Status</span>
-              <span className={`toggle-icon ${openFilters.status ? 'open' : ''}`}>▼</span>
+              <div className={`filter-toggle ${openFilters.status ? 'open' : ''}`}>
+                <div className="toggle-line toggle-line-1" />
+                <div className="toggle-line toggle-line-2" />
+              </div>
             </button>
             {openFilters.status && (
               <div className="filter-options">
                 {getStatus().map(st => (
-                  <label key={st} className="filter-option">
-                    <input
-                      type="checkbox"
-                      checked={filters.status === st}
-                      onChange={() => handleFilterChange('status', st)}
-                    />
+                  <label key={st} className={`filter-option ${filters.status === st ? 'active' : ''}`}>
+                    <div className="custom-checkbox">
+                      <input
+                        type="checkbox"
+                        checked={filters.status === st}
+                        onChange={() => handleFilterChange('status', st)}
+                      />
+                      <div className="checkbox-visual" />
+                    </div>
                     <span>{st}</span>
                   </label>
                 ))}
@@ -166,16 +276,21 @@ export default function Projetos() {
 
         {/* GRID DE PROJETOS */}
         <div className="projetos-content">
-          <div className="projetos-count">
-            {filteredProjects.length} projeto{filteredProjects.length !== 1 ? 's' : ''}
+          <div className="projetos-header">
+            <div className="projetos-count">
+              <span className="count-number">{filteredProjects.length}</span>
+              <span className="count-label">projeto{filteredProjects.length !== 1 ? 's' : ''}</span>
+            </div>
+            <div className="projects-line" />
           </div>
 
           <div className="projetos-grid">
-            {filteredProjects.map(project => (
+            {filteredProjects.map((project, index) => (
               <Link
                 key={project.id}
                 href={`/projetos/${project.slug}`}
                 className="project-card"
+                style={{ '--delay': index * 0.05 + 's' }}
               >
                 <div className="project-image-wrapper">
                   <img
@@ -185,8 +300,16 @@ export default function Projetos() {
                     loading="lazy"
                   />
                   <div className="project-overlay">
-                    <h3>{project.title}</h3>
+                    <div className="project-title-wrapper">
+                      <h3>{project.title}</h3>
+                      <div className="project-arrow">→</div>
+                    </div>
                   </div>
+                  <div className="project-border" />
+                </div>
+                <div className="project-meta">
+                  <span className="project-category">{project.category}</span>
+                  <span className="project-year">{project.year}</span>
                 </div>
               </Link>
             ))}
@@ -194,7 +317,12 @@ export default function Projetos() {
 
           {filteredProjects.length === 0 && (
             <div className="no-projects">
-              <p>Nenhum projeto encontrado com esses filtros.</p>
+              <div className="no-projects-visual">
+                <div className="empty-square" />
+                <div className="empty-square" />
+                <div className="empty-square" />
+              </div>
+              <p>Nenhum projeto encontrado</p>
             </div>
           )}
         </div>

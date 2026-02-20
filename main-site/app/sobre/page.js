@@ -1,15 +1,83 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef } from 'react';
 import '@/styles/sobre.css';
 
 export default function Sobre() {
-  const [selectedPoint, setSelectedPoint] = useState(null);
+  const canvasRef = useRef(null);
 
-  //No page.js, cada item tem um campo imageMode que pode ser:
-  //'contain' → Logo/imagem horizontal aparece inteira com espaço branco (IFTM, UFSCar)
-  //'cover' → Imagem preenche e corta as bordas (USP - padrão)
-  //'stretch' → Distorce pra preencher (não recomendado)
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    let animationFrameId;
+
+    const setCanvasSize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+
+    setCanvasSize();
+    window.addEventListener('resize', setCanvasSize);
+
+    const particles = [];
+    const particleCount = 30;
+
+    for (let i = 0; i < particleCount; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        size: Math.random() * 1.5 + 0.5,
+        speedX: (Math.random() - 0.5) * 0.3,
+        speedY: (Math.random() - 0.5) * 0.3,
+        opacity: Math.random() * 0.2 + 0.05,
+      });
+    }
+
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      particles.forEach((particle) => {
+        particle.x += particle.speedX;
+        particle.y += particle.speedY;
+
+        if (particle.x < 0 || particle.x > canvas.width) particle.speedX *= -1;
+        if (particle.y < 0 || particle.y > canvas.height) particle.speedY *= -1;
+
+        ctx.beginPath();
+        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(0, 56, 186, ${particle.opacity})`;
+        ctx.fill();
+      });
+
+      particles.forEach((particle, i) => {
+        particles.slice(i + 1).forEach((otherParticle) => {
+          const dx = particle.x - otherParticle.x;
+          const dy = particle.y - otherParticle.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < 100) {
+            ctx.beginPath();
+            ctx.moveTo(particle.x, particle.y);
+            ctx.lineTo(otherParticle.x, otherParticle.y);
+            ctx.strokeStyle = `rgba(0, 56, 186, ${0.08 * (1 - distance / 100)})`;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        });
+      });
+
+      animationFrameId = requestAnimationFrame(animate);
+    };
+
+    animate();
+
+    return () => {
+      window.removeEventListener('resize', setCanvasSize);
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, []);
 
   const trajectoryData = [
     {
@@ -18,9 +86,8 @@ export default function Sobre() {
       title: 'IFTM',
       subtitle: 'Computação Gráfica',
       description: 'Nasci em Uberlândia. Em 2018 realizei o exame para ingresso no Curso de Computação Gráfica integrado ao Ensino Médio do Instituto Federal do Triângulo Mineiro (IFTM), formando-se em 2020. Foram anos de muito aprendizado em programação, modelagem 3D e design.',
-      position: 15,
       imageUrl: '/database/images/iftm-horizontal-uberlandiacentro.png',
-      imageMode: 'contain' // 'cover' | 'contain' | 'stretch'
+      imageMode: 'contain'
     },
     {
       id: 1,
@@ -28,9 +95,8 @@ export default function Sobre() {
       title: 'UFSCar',
       subtitle: 'Física',
       description: 'Após o ensino médio, cursei brevemente física na Universidade Federal de São Carlos (UFSCar). Em 2023, percebi que sentia falta das atividades técnicas que realizava durante o curso, como programação e modelagem 3D.',
-      position: 50,
       imageUrl: '/database/images/Ufscar-logo.png',
-      imageMode: 'contain' // 'cover' | 'contain' | 'stretch'
+      imageMode: 'contain'
     },
     {
       id: 2,
@@ -38,9 +104,8 @@ export default function Sobre() {
       title: 'USP',
       subtitle: 'Arquitetura e Urbanismo',
       description: 'Sendo assim, ingressei na Universidade de São Paulo (USP), na capital, onde resido e curso atualmente Arquitetura e Urbanismo. Uma decisão que combina minha paixão por design com a visão de futuro.',
-      position: 85,
       imageUrl: '/database/images/profile_photo1.jpeg',
-      imageMode: 'cover' // 'cover' | 'contain' | 'stretch'
+      imageMode: 'cover'
     }
   ];
 
@@ -62,7 +127,6 @@ export default function Sobre() {
     { name: 'After Effects', proficiency: 72 },
   ];
 
-  // Array de certificados - você pode preencher com seus dados
   const certificates = [
     {
       id: 1,
@@ -75,169 +139,143 @@ export default function Sobre() {
 
   return (
     <main className="sobre-section">
-      {/* HEADER - TRAJETÓRIA */}
-      <div className="sobre-header">
-        <div className="title-accent"></div>
-        <h2 className="section-title">Minha Trajetória</h2>
-      </div>
-
-      {/* TIMELINE INTERATIVA */}
-      <div className={`timeline-container ${selectedPoint === null ? 'expanded' : ''}`}>
-        <div className={`timeline-track ${selectedPoint !== null ? 'collapsed' : 'expanded'}`}>
-          {/* SVG com trilha suavizada */}
-          <svg className="timeline-svg" viewBox="0 0 1000 200" preserveAspectRatio="xMidYMid meet">
-            {/* Trilha de fundo - RETA E PONTILHADA */}
-            <path
-              className="track-path"
-              d="M 0 100 L 1000 100"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeDasharray="8,6"
-              strokeLinecap="round"
-            />
-            
-            {/* Pontos da trilha */}
-            {trajectoryData.map((point) => (
-              <g
-                key={point.id}
-                className={`timeline-point ${selectedPoint === point.id ? 'active' : ''}`}
-              >
-                <circle
-                  cx={(point.position / 100) * 1000}
-                  cy={100}
-                  r="14"
-                  className="point-circle"
-                  onClick={() => setSelectedPoint(selectedPoint === point.id ? null : point.id)}
-                />
-                <text
-                  x={(point.position / 100) * 1000}
-                  y={140}
-                  className="point-label"
-                  onClick={() => setSelectedPoint(selectedPoint === point.id ? null : point.id)}
-                >
-                  {point.year}
-                </text>
-              </g>
-            ))}
-          </svg>
-        </div>
-
-        {/* PAINEL LATERAL - INFO TRAJETÓRIA */}
-        {selectedPoint !== null && (
-          <div className="trajectory-panel">
-            <div className="panel-accent"></div>
-            <div className="panel-image-container">
-              {trajectoryData[selectedPoint].imageUrl && (
-                <img 
-                  src={trajectoryData[selectedPoint].imageUrl} 
-                  alt={trajectoryData[selectedPoint].title}
-                  className="panel-image"
-                  style={{ objectFit: trajectoryData[selectedPoint].imageMode }}
-                />
-              )}
+      <canvas ref={canvasRef} className="sobre-canvas" />
+      
+      <div className="sobre-content">
+        {/* TRAJECTORY SECTION */}
+        <div className="trajectory-section">
+          <div className="section-header">
+            <div className="section-title-visual">
+              <div className="section-square" />
+              <h2>Trajetória</h2>
             </div>
-            <div className="panel-content">
-              <div className="panel-year">{trajectoryData[selectedPoint].year}</div>
-              <h3 className="panel-title">{trajectoryData[selectedPoint].title}</h3>
-              <p className="panel-subtitle">{trajectoryData[selectedPoint].subtitle}</p>
-              <p className="panel-description">{trajectoryData[selectedPoint].description}</p>
-            </div>
+            <div className="section-line" />
           </div>
-        )}
-      </div>
 
-      {/* SKILLS SECTION */}
-      <div className="skills-section">
-        <div className="skills-header">
-          <div className="skills-accent"></div>
-          <h3 className="skills-title">Skills & Softwares</h3>
-        </div>
-        
-        <div className="skills-grid">
-          {skills.map((skill, index) => (
-            <div 
-              key={skill.name}
-              className="skill-card"
-              style={{ '--delay': `${index * 0.05}s` }}
-            >
-              <div className="skill-header">
-                <h4 className="skill-name">{skill.name}</h4>
-                <span className="skill-percentage">{skill.proficiency}%</span>
-              </div>
-              <div className="skill-bar-container">
-                <div 
-                  className="skill-bar"
-                  style={{ '--width': `${skill.proficiency}%` }}
-                >
-                  <div className="skill-bar-fill"></div>
+          <div className="trajectory-grid">
+            {trajectoryData.map((item, index) => (
+              <div 
+                key={item.id} 
+                className="trajectory-card"
+                style={{ '--delay': index * 0.15 + 's' }}
+              >
+                <div className="trajectory-year">{item.year}</div>
+                <div className="trajectory-image-wrapper">
+                  {item.imageUrl && (
+                    <img 
+                      src={item.imageUrl} 
+                      alt={item.title}
+                      className="trajectory-image"
+                      style={{ objectFit: item.imageMode }}
+                    />
+                  )}
+                  <div className="trajectory-overlay" />
+                </div>
+                <div className="trajectory-info">
+                  <h3 className="trajectory-title">{item.title}</h3>
+                  <p className="trajectory-subtitle">{item.subtitle}</p>
+                  <p className="trajectory-description">{item.description}</p>
                 </div>
               </div>
+            ))}
+          </div>
+        </div>
+
+        {/* SKILLS SECTION */}
+        <div className="skills-section">
+          <div className="section-header">
+            <div className="section-title-visual">
+              <div className="section-square" />
+              <h3 className="section-title">Skills & Softwares</h3>
             </div>
-          ))}
-        </div>
-      </div>
-
-      {/* CERTIFICADOS SECTION */}
-      <div className="certificates-section">
-        <div className="certificates-header">
-          <div className="certificates-accent"></div>
-          <h3 className="certificates-title">Certificados & Credenciais</h3>
-        </div>
-
-        {certificates.length > 0 ? (
-          <div className="certificates-grid">
-            {certificates.map((cert, index) => (
+            <div className="section-line" />
+          </div>
+          
+          <div className="skills-grid">
+            {skills.map((skill, index) => (
               <div 
-                key={cert.id}
-                className="certificate-card"
-                style={{ '--delay': `${index * 0.05}s` }}
+                key={skill.name}
+                className="skill-card"
+                style={{ '--delay': index * 0.05 + 's' }}
               >
-                {/* Thumbnail */}
-                <div className="certificate-thumbnail">
-                  {cert.thumbnail ? (
-                    <img src={cert.thumbnail} alt={cert.name} />
-                  ) : (
-                    <div className="certificate-icon">📄</div>
-                  )}
-                  <div className="certificate-overlay">
+                <div className="skill-header">
+                  <h4 className="skill-name">{skill.name}</h4>
+                  <span className="skill-percentage">{skill.proficiency}%</span>
+                </div>
+                <div className="skill-bar-container">
+                  <div 
+                    className="skill-bar"
+                    style={{ '--width': `${skill.proficiency}%` }}
+                  >
+                    <div className="skill-bar-fill"></div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* CERTIFICADOS SECTION */}
+        <div className="certificates-section">
+          <div className="section-header">
+            <div className="section-title-visual">
+              <div className="section-square" />
+              <h3 className="section-title">Certificados & Credenciais</h3>
+            </div>
+            <div className="section-line" />
+          </div>
+
+          {certificates.length > 0 ? (
+            <div className="certificates-grid">
+              {certificates.map((cert, index) => (
+                <div 
+                  key={cert.id}
+                  className="certificate-card"
+                  style={{ '--delay': index * 0.1 + 's' }}
+                >
+                  <div className="certificate-thumbnail">
+                    {cert.thumbnail ? (
+                      <img src={cert.thumbnail} alt={cert.name} />
+                    ) : (
+                      <div className="certificate-icon">📄</div>
+                    )}
+                    <div className="certificate-overlay">
+                      <a
+                        href={cert.pdfUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="overlay-button"
+                        title={`Abrir ${cert.name}`}
+                      >
+                        Visualizar
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="certificate-content">
+                    <h4 className="certificate-name">{cert.name}</h4>
+                    <p className="certificate-issuer">{cert.issuer}</p>
+                    <span className="certificate-date">{cert.date}</span>
+                    
                     <a
                       href={cert.pdfUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="overlay-button"
-                      title={`Abrir ${cert.name}`}
+                      download
+                      className="certificate-link"
+                      title={`Baixar ${cert.name}`}
                     >
-                      Visualizar
+                      ⬇️ Baixar PDF
                     </a>
                   </div>
                 </div>
-
-                {/* Content */}
-                <div className="certificate-content">
-                  <h4 className="certificate-name">{cert.name}</h4>
-                  <p className="certificate-issuer">{cert.issuer}</p>
-                  <span className="certificate-date">{cert.date}</span>
-                  
-                  {/* Botão de download */}
-                  <a
-                    href={cert.pdfUrl}
-                    download
-                    className="certificate-link"
-                    title={`Baixar ${cert.name}`}
-                  >
-                    ⬇️ Baixar PDF
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
-        ) : (
-          <div className="certificates-empty">
-            <div className="empty-icon">📜</div>
-            <p className="empty-text">Nenhum certificado adicionado ainda</p>
-          </div>
-        )}
+              ))}
+            </div>
+          ) : (
+            <div className="certificates-empty">
+              <div className="empty-icon">📜</div>
+              <p className="empty-text">Nenhum certificado adicionado ainda</p>
+            </div>
+          )}
+        </div>
       </div>
     </main>
   );

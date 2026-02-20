@@ -131,6 +131,85 @@ header nav a:active {
     color: #515f7c;
 }
 
+/* --- MINIMAL HEADER --- */
+.minimal-header {
+    padding: 1.5rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    width: 100%;
+    position: relative;
+    z-index: 100;
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease;
+}
+
+.header-logo:hover {
+    transform: rotate(45deg);
+}
+
+.logo-square {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #191a1c;
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+.header-logo:hover .logo-square {
+    background: #191a1c;
+    border-color: #0038ba;
+}
+
+.minimal-nav {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #191a1c;
+    display: block;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-dot:hover {
+    background: #0038ba;
+    transform: scale(1.3);
+}
+
+.nav-dot::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(0, 56, 186, 0.2);
+    transition: width 0.3s ease, height 0.3s ease;
+}
+
+.nav-dot:hover::after {
+    width: 20px;
+    height: 20px;
+}
+
 /* --- LAYOUTS GERAIS --- */
 main {
     flex: 1;
@@ -239,6 +318,89 @@ footer {
     color: #0038ba;
 }
 
+/* --- MINIMAL FOOTER --- */
+.minimal-footer {
+    background: transparent;
+    padding: 0;
+    margin-top: auto;
+    width: 100%;
+    position: relative;
+}
+
+.footer-line {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, #191a1c 20%, #191a1c 80%, transparent 100%);
+    opacity: 0.3;
+    margin-bottom: 2rem;
+}
+
+.footer-content {
+    max-width: 1450px;
+    margin: 0 auto;
+    padding: 2rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.footer-signature {
+    flex: 0 0 auto;
+}
+
+.footer-signature-img {
+    height: 35px;
+    width: auto;
+    filter: brightness(0) saturate(100%) invert(15%) sepia(95%) saturate(5000%) hue-rotate(220deg) brightness(0.9);
+    opacity: 0.9;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.footer-signature-img:hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.footer-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.85rem;
+    color: #515f7c;
+    font-family: 'Orator Std', monospace;
+    letter-spacing: 0.5px;
+}
+
+.footer-info span:nth-child(even) {
+    opacity: 0.5;
+}
+
+.footer-links {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.85rem;
+    font-family: 'Orator Std', monospace;
+    letter-spacing: 0.5px;
+}
+
+.footer-links span {
+    opacity: 0.5;
+    color: #515f7c;
+}
+
+.footer-link {
+    color: #515f7c;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: #0038ba;
+}
+
 /* --- MOBILE (Celular) --- */
 @media (max-width: 1024px) {
     .footer-simple {
@@ -248,6 +410,15 @@ footer {
 
     .footer-right {
         text-align: right;
+    }
+
+    .minimal-header {
+        padding: 1.5rem 4%;
+    }
+
+    .footer-content {
+        gap: 30px;
+        padding: 1.5rem 4%;
     }
 }
 
@@ -263,6 +434,14 @@ footer {
 
     header nav {
         margin-left: 0;
+    }
+
+    .minimal-header {
+        padding: 1.25rem 4%;
+    }
+
+    .minimal-nav {
+        gap: 15px;
     }
 
     .footer-simple {
@@ -289,6 +468,19 @@ footer {
     .footer-right a {
         font-size: 0.85rem;
     }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+        padding: 1.5rem 4%;
+    }
+
+    .footer-info,
+    .footer-links {
+        justify-content: center;
+    }
 }
 
 @media (max-width: 480px) {
@@ -300,6 +492,19 @@ footer {
     header nav ul {
         gap: 15px;
         font-size: 0.85rem;
+    }
+
+    .minimal-header {
+        padding: 1rem 4%;
+    }
+
+    .minimal-nav {
+        gap: 12px;
+    }
+
+    .nav-dot {
+        width: 6px;
+        height: 6px;
     }
 
     .footer-simple {
@@ -319,5 +524,20 @@ footer {
 
     .footer-right a {
         font-size: 0.8rem;
+    }
+
+    .footer-content {
+        padding: 1.25rem 4%;
+        gap: 15px;
+    }
+
+    .footer-info,
+    .footer-links {
+        font-size: 0.75rem;
+        gap: 8px;
+    }
+
+    .footer-signature-img {
+        height: 28px;
     }
 }

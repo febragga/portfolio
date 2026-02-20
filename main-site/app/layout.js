@@ -9,45 +9,41 @@ export default function RootLayout({ children }) {
   return (
     <html lang="pt-br">
       <body>
-        <header>
-          <div className="header-left">
-            <h1>
-              <Link href="/" style={{ textDecoration: 'none', color: 'inherit' }}>
-                FERNANDO BRAGA PORTFÓLIO
-              </Link>
-            </h1>
-          </div>
-          <nav>
-            <ul>
-              <li><Link href="/sobre">Sobre</Link></li>
-              <li><Link href="/contato">Contato</Link></li>
-            </ul>
+        <header className="minimal-header">
+          <Link href="/" className="header-logo">
+            <div className="logo-square" />
+          </Link>
+          <nav className="minimal-nav">
+            <Link href="/projetos" className="nav-dot" />
+            <Link href="/sobre" className="nav-dot" />
+            <Link href="/contato" className="nav-dot" />
           </nav>
         </header>
 
         {children}
 
-        <footer>
-          <div className="footer-wrapper">
-            <div className="footer-simple">
-              <div className="footer-left">
-                <img
-                  src="/assinatura.svg"
-                  alt="Assinatura Fernando Braga"
-                  className="signature-image"
-                  loading="lazy"
-                />
-              </div>
-              
-              <div className="footer-center">
-                <p>Uberlândia-MG ©2026</p>
-                <p>São Paulo-SP</p>
-              </div>
-              
-              <div className="footer-right">
-                <a href="mailto:f_bragga@icloud.com">f_bragga@icloud.com</a>
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">@inf_bragga</a>
-              </div>
+        <footer className="minimal-footer">
+          <div className="footer-line" />
+          <div className="footer-content">
+            <div className="footer-signature">
+              <img
+                src="/assinatura.svg"
+                alt="Assinatura Fernando Braga"
+                className="footer-signature-img"
+                loading="lazy"
+              />
+            </div>
+            <div className="footer-info">
+              <span>Uberlândia-MG</span>
+              <span>•</span>
+              <span>São Paulo-SP</span>
+              <span>•</span>
+              <span>©2026</span>
+            </div>
+            <div className="footer-links">
+              <a href="mailto:f_bragga@icloud.com" className="footer-link">Email</a>
+              <span>•</span>
+              <a href="https://www.instagram.com/inf.bragga" target="_blank" rel="noopener noreferrer" className="footer-link">Instagram</a>
             </div>
           </div>
         </footer>

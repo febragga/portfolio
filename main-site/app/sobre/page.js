@@ -135,6 +135,13 @@ export default function Sobre() {
       date: '28 de Setembro de 2025',
       pdfUrl: '/docs/certificado-metodo-cura.pdf',
     },
+    {
+      id: 2,
+      name: 'Certificado Archicad Cura',
+      issuer: 'Curso Cura',
+      date: '22 de Fevereiro de 2026',
+      pdfUrl: '/docs/certificado-archicad-cura.pdf',
+    },
   ];
 
   return (

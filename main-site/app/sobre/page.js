@@ -142,6 +142,13 @@ export default function Sobre() {
       date: '22 de Fevereiro de 2026',
       pdfUrl: '/docs/certificado-archicad-cura.pdf',
     },
+    {
+      id: 3,
+      name: 'Curriculum Vitae',
+      issuer: 'Atualizado em:',
+      date: '25 de Fevereiro de 2026',
+      pdfUrl: '/docs/CV.pdf',
+    },
   ];
 
   return (

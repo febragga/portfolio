@@ -9,9 +9,8 @@ export const projects = [
     location: 'são paulo - sp',
     year: 2025,
     status: 'projeto',
-    description: 'Projeto realizado para a disciplina de Construção IV, mas com detalhamento interior individual, realizado para a conclusão do curso método cura.',
-    content: 'O projeto conta com dois banheiros, um área de lazer superior e um jardim interno, além de um espaço de trabalho amplo e iluminado. Projeto feito no sketchup, com renderização no enscape, e pós-edição no photoshop.',
-    // Array de mídia para a galeria
+    description: 'Projeto realizado para a disciplina de Construção III, mas com detalhamento interior individual, realizado para a conclusão do curso método cura.',
+    content: 'O projeto dispõe de dois banheiros, uma área de lazer superior e um jardim interno, que complementam um espaço de trabalho amplo e bem iluminado. Desenvolvido no SketchUp com renderização no Enscape e pós-edição no Photoshop, o foco deste trabalho não foi a estética exterior, mas sim o rigor técnico exigido pela disciplina. Priorizamos o detalhamento de fundações e elementos estruturais, como muros de arrimo, buscando projetar a "casca" do estúdio de forma fidedigna à realidade construtiva. Houve também uma preocupação central com a insolação e o escoamento d\'água; para isso, realizamos o desenho de shafts com a inclinação correta e grelhas horizontais, unindo a necessidade de luz natural abundante para as atividades artísticas à eficiência do sistema de drenagem.'    // Array de mídia para a galeria
     gallery: [
       {
         id: 'img-01',
@@ -54,7 +53,7 @@ export const projects = [
     year: 2025,
     status: 'concluído',
     description: 'Documentação e montagem do projeto Log Paper House, de Shigeru Ban, na Bienal de Arquitetura de São Paulo.',
-    content: 'O projeto é uma residência temporária construída com papelão e engradados de cerveja, projetada para ser sustentável e de baixo custo. Projeto modelado no sketchup, com renderização no 3DS Max/Arnold, e pós-edição no photoshop.',
+    content: 'O projeto é uma residência temporária construída com papelão e engradados de cerveja, projetada para ser sustentável e de baixo custo. Projeto modelado no sketchup, com renderização no 3DS Max/Arnold, e pós-edição no photoshop. Logo após a fase de documentação, mandei os arquivos para que fosse realizada a prancha do projeto (parte em que não tive participação) e enviada para um concurso do IABSP. A exposição foi montada em duas ocasiões: na Bienal, com auxílios de técnicos, e na FAU, apenas com os estudantes que participaram do projeto.',
     gallery: [
       {
         id: 'pdf-01',
@@ -91,12 +90,19 @@ export const projects = [
         title: 'Iso Night View Render',
         thumbnail: '/img/arquitetura/02_ShigeruBan/test_1.png'
       },
-            {
+      {
         id: 'img-02',
         type: 'image',
         src: '/img/arquitetura/02_ShigeruBan/test_3.png',
         title: 'Front View Render',
         thumbnail: '/img/arquitetura/02_ShigeruBan/test_3.png'
+      },
+      {
+        id: 'img-03',
+        type: 'image',
+        src: '/img/arquitetura/02_ShigeruBan/build.jpg',
+        title: 'Front View Render',
+        thumbnail: '/img/arquitetura/02_ShigeruBan/build.jpg'
       }
     ]
   },
@@ -111,7 +117,7 @@ export const projects = [
     year: 2024,
     status: 'projeto',
     description: 'Render feito no blender, de uma cena simples de um canto de sala',
-    content: 'O projeto explora a paleta de cores terracota, com muxarabis e texturas rústicas, criando um ambiente acolhedor.',
+    content: 'O projeto explora a paleta de cores terracota, com muxarabis e texturas rústicas, criando um ambiente acolhedor. Foi um dos primeiros projetos que fiz para retomar minhas atividades no Blender, relembrando alguns conceitos que aprendi durante o ensino médio. Foi rápido e divertido.',
     gallery: []
   },
   {
@@ -125,7 +131,7 @@ export const projects = [
     year: 2024,
     status: 'concluído',
     description: 'Edifício de uso misto localizado em São Paulo, com áreas comerciais no térreo e residenciais nos andares superiores.',
-    content: 'Projeto realizado na disciplina de Projeto II. Feito no Archicad e renderizado no D5 Render.',
+    content: 'Projeto realizado na disciplina de Projeto II. Feito no Archicad e renderizado no D5 Render. Este projeto, desenvolvido na disciplina de Projeto II, foi um divisor de águas para mim. Foi o momento em que eu percebi: diante do rigor do professor Spadoni, percebi o abismo de conhecimento que ainda existia entre a minha visão de aluno, a realidade da arquitetura e a visão do professor. Longe de me desanimar, esse choque de realidade, somado ao apoio fundamental do monitor da disciplina, me fez mergulhar de cabeça no processo. Foi minha primeira experiência séria utilizando o Archicad, onde cada parede e cada linha me provocavam a buscar um propósito. O texto do Rafael Moneo sobre a arbitrariedade da arquitetura, recomendado pelo monitor, foi ímpar nesse sentido. Busquei o real, o absoluto, tentando traduzir no software o nível de detalhe que o projeto exigia. Mais do que um trabalho acadêmico, foi o projeto onde aprendi um pedaço do que significa projetar.',
     gallery: [            
       {
         id: 'img-01',
@@ -168,7 +174,7 @@ export const projects = [
     year: 2025,
     status: 'projeto',
     description: 'Edifício corporativo com restaurante na cobertura.',
-    content: 'Projeto realizado na disciplina de Construção IV, explorando técnicas elementares de construção.',
+    content: 'Projeto realizado na disciplina de Construção IV, explorando técnicas elementares de construção, detalhamento de revestimentos (os quais não foram adicionadas aqui), caimento de telhados, e escoamento d\'água.',
     gallery: [
       {
         id: 'pdf-01',
@@ -341,7 +347,7 @@ export const projects = [
     year: 2025,
     status: 'concluído',
     description: 'Modelagem 3D de um objeto inspirado em uma caixa de correio, com texturização detalhada.',
-    content: 'Feita no Blender, renderização no Cycles, com texturas criadas no Substance Painter.',
+    content: 'Feita no Blender, renderização no Cycles, com texturas criadas no Substance Painter. Um outro projeto feito para relembrar e retomar meus estudos no Blender, relembrando do tempo em que era comum fazer animações na escola.',
     gallery: [
       {
       id: 'vid-01',

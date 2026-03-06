@@ -41,7 +41,7 @@ export default function RootLayout({ children }) {
               <span>©2026</span>
             </div>
             <div className="footer-links">
-              <a href="mailto:f_bragga@icloud.com" className="footer-link">Email</a>
+              <a href="mailto:contato@fernandobragaportfolio.com.br" className="footer-link">Email</a>
               <span>•</span>
               <a href="https://www.instagram.com/inf.bragga" target="_blank" rel="noopener noreferrer" className="footer-link">Instagram</a>
             </div>

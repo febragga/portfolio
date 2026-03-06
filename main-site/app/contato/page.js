@@ -99,8 +99,8 @@ export default function Contato() {
             </div>
             <div className="contact-info">
               <span className="contact-label">E-mail</span>
-              <a href="mailto:f_bragga@icloud.com" className="contact-value">
-                f_bragga@icloud.com
+              <a href="mailto:contato@fernandobragaportfolio.com.br" className="contact-value">
+                contato@fernandobragaportfolio.com.br
               </a>
             </div>
           </div>

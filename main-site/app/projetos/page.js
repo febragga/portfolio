@@ -14,11 +14,13 @@ export default function Projetos() {
   })
 
   const [openFilters, setOpenFilters] = useState({
-    category: true,
+    category: false,
     location: false,
     year: false,
     status: false,
   })
+
+  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
 
   const canvasRef = useRef(null)
 
@@ -120,6 +122,10 @@ export default function Projetos() {
     }))
   }
 
+  const toggleMobileFilters = () => {
+    setMobileFiltersOpen(!mobileFiltersOpen)
+  }
+
   const clearFilters = () => {
     setFilters({ category: null, location: null, year: null, status: null })
   }
@@ -135,8 +141,13 @@ export default function Projetos() {
         <aside className="filters-sidebar">
           <div className="filters-header">
             <div className="filter-title-visual">
-              <div className="filter-square" />
-              <span className="filter-label">Filtros</span>
+              <div className={`filter-square ${mobileFiltersOpen ? 'rotated' : ''}`} />
+              <button 
+                className="filter-label"
+                onClick={toggleMobileFilters}
+              >
+                Filtros
+              </button>
             </div>
             {hasActiveFilters && (
               <button className="clear-filters" onClick={clearFilters}>
@@ -145,8 +156,11 @@ export default function Projetos() {
             )}
           </div>
 
+          {/* Filter Categories */}
+          <div className={`filter-categories ${mobileFiltersOpen ? 'open' : ''}`}>
+
           {/* CATEGORIA */}
-          <div className="filter-group">
+          <div className={`filter-group ${openFilters.category ? 'active' : ''}`}>
             <button 
               className="filter-title"
               onClick={() => toggleFilter('category')}
@@ -158,27 +172,25 @@ export default function Projetos() {
                 <div className="toggle-line toggle-line-2" />
               </div>
             </button>
-            {openFilters.category && (
-              <div className="filter-options">
-                {getCategories().map(cat => (
-                  <label key={cat} className={`filter-option ${filters.category === cat ? 'active' : ''}`}>
-                    <div className="custom-checkbox">
-                      <input
-                        type="checkbox"
-                        checked={filters.category === cat}
-                        onChange={() => handleFilterChange('category', cat)}
-                      />
-                      <div className="checkbox-visual" />
-                    </div>
-                    <span>{cat}</span>
-                  </label>
-                ))}
-              </div>
-            )}
+            <div className="filter-options">
+              {getCategories().map(cat => (
+                <label key={cat} className={`filter-option ${filters.category === cat ? 'active' : ''}`}>
+                  <div className="custom-checkbox">
+                    <input
+                      type="checkbox"
+                      checked={filters.category === cat}
+                      onChange={() => handleFilterChange('category', cat)}
+                    />
+                    <div className="checkbox-visual" />
+                  </div>
+                  <span>{cat}</span>
+                </label>
+              ))}
+            </div>
           </div>
 
           {/* LOCALIZAÇÃO */}
-          <div className="filter-group">
+          <div className={`filter-group ${openFilters.location ? 'active' : ''}`}>
             <button 
               className="filter-title"
               onClick={() => toggleFilter('location')}
@@ -190,27 +202,25 @@ export default function Projetos() {
                 <div className="toggle-line toggle-line-2" />
               </div>
             </button>
-            {openFilters.location && (
-              <div className="filter-options">
-                {getLocations().map(loc => (
-                  <label key={loc} className={`filter-option ${filters.location === loc ? 'active' : ''}`}>
-                    <div className="custom-checkbox">
-                      <input
-                        type="checkbox"
-                        checked={filters.location === loc}
-                        onChange={() => handleFilterChange('location', loc)}
-                      />
-                      <div className="checkbox-visual" />
-                    </div>
-                    <span>{loc}</span>
-                  </label>
-                ))}
-              </div>
-            )}
+            <div className="filter-options">
+              {getLocations().map(loc => (
+                <label key={loc} className={`filter-option ${filters.location === loc ? 'active' : ''}`}>
+                  <div className="custom-checkbox">
+                    <input
+                      type="checkbox"
+                      checked={filters.location === loc}
+                      onChange={() => handleFilterChange('location', loc)}
+                    />
+                    <div className="checkbox-visual" />
+                  </div>
+                  <span>{loc}</span>
+                </label>
+              ))}
+            </div>
           </div>
 
           {/* ANO */}
-          <div className="filter-group">
+          <div className={`filter-group ${openFilters.year ? 'active' : ''}`}>
             <button 
               className="filter-title"
               onClick={() => toggleFilter('year')}
@@ -222,27 +232,25 @@ export default function Projetos() {
                 <div className="toggle-line toggle-line-2" />
               </div>
             </button>
-            {openFilters.year && (
-              <div className="filter-options">
-                {getYears().map(year => (
-                  <label key={year} className={`filter-option ${filters.year === year ? 'active' : ''}`}>
-                    <div className="custom-checkbox">
-                      <input
-                        type="checkbox"
-                        checked={filters.year === year}
-                        onChange={() => handleFilterChange('year', year)}
-                      />
-                      <div className="checkbox-visual" />
-                    </div>
-                    <span>{year}</span>
-                  </label>
-                ))}
-              </div>
-            )}
+            <div className="filter-options">
+              {getYears().map(year => (
+                <label key={year} className={`filter-option ${filters.year === year ? 'active' : ''}`}>
+                  <div className="custom-checkbox">
+                    <input
+                      type="checkbox"
+                      checked={filters.year === year}
+                      onChange={() => handleFilterChange('year', year)}
+                    />
+                    <div className="checkbox-visual" />
+                  </div>
+                  <span>{year}</span>
+                </label>
+              ))}
+            </div>
           </div>
 
           {/* STATUS */}
-          <div className="filter-group">
+          <div className={`filter-group ${openFilters.status ? 'active' : ''}`}>
             <button 
               className="filter-title"
               onClick={() => toggleFilter('status')}
@@ -254,23 +262,22 @@ export default function Projetos() {
                 <div className="toggle-line toggle-line-2" />
               </div>
             </button>
-            {openFilters.status && (
-              <div className="filter-options">
-                {getStatus().map(st => (
-                  <label key={st} className={`filter-option ${filters.status === st ? 'active' : ''}`}>
-                    <div className="custom-checkbox">
-                      <input
-                        type="checkbox"
-                        checked={filters.status === st}
-                        onChange={() => handleFilterChange('status', st)}
-                      />
-                      <div className="checkbox-visual" />
-                    </div>
-                    <span>{st}</span>
-                  </label>
-                ))}
-              </div>
-            )}
+            <div className="filter-options">
+              {getStatus().map(st => (
+                <label key={st} className={`filter-option ${filters.status === st ? 'active' : ''}`}>
+                  <div className="custom-checkbox">
+                    <input
+                      type="checkbox"
+                      checked={filters.status === st}
+                      onChange={() => handleFilterChange('status', st)}
+                    />
+                    <div className="checkbox-visual" />
+                  </div>
+                  <span>{st}</span>
+                </label>
+              ))}
+            </div>
+          </div>
           </div>
         </aside>
 

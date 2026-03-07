@@ -409,6 +409,28 @@ export const projects = [
       }
     ]
   },
+  {
+    id: 13,
+    slug: 'escola',
+    title: 'Escola',
+    image: '/img/arquitetura/07_Escola/IN PROGRESS.jpg',
+    thumbnail: '/img/arquitetura/07_Escola/IN PROGRESS.jpg',
+    category: 'edifício público',
+    location: 'são paulo - sp',
+    year: 2025,
+    status: 'não concluído',
+    description: 'Trabalho em andamento para a disciplina AUP0193 - Optativa/Projeto IV',
+    content: 'Em progresso.', 
+    gallery: [
+      {
+        id: 'pdf-01',
+        type: 'pdf',
+        src: '/img/arquitetura/07_Escola/base_reading/merged.pdf',
+        title: 'Leitura de Território',
+        poster: '/img/arquitetura/07_Escola/base_reading/merged.pdf'
+      }
+    ]
+  },
 ]
 
 // Extrair categorias, localizações e anos únicos automaticamente

@@ -425,9 +425,9 @@ export const projects = [
       {
         id: 'pdf-01',
         type: 'pdf',
-        src: '/img/arquitetura/07_Escola/base_reading/merged.pdf',
+        src: '/img/arquitetura/07_Escola/base_reading/conjunto1.pdf',
         title: 'Leitura de Território',
-        poster: '/img/arquitetura/07_Escola/base_reading/merged.pdf'
+        poster: '/img/arquitetura/07_Escola/base_reading/conjunto1.pdf'
       }
     ]
   },

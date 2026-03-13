@@ -4,7 +4,7 @@
   width: 100%;
   max-width: 100%;
   padding: 80px 5%;
-  background: #e8e3d4;
+  background: #DADBDC;
   position: relative;
   min-height: calc(100vh - 200px);
   flex: 1 0 auto;
@@ -466,7 +466,7 @@
 
 .certificate-link:hover {
   background: #191a1c;
-  color: #e8e3d4;
+  color: #DADBDC;
 }
 
 .certificates-empty {

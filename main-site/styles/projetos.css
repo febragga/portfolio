@@ -7,7 +7,7 @@
   padding: 60px 5%;
   flex: 1 0 auto;
   position: relative;
-  background: #e8e3d4;
+  background: #DADBDC;
   min-height: calc(100vh - 200px);
 }
 
@@ -102,7 +102,7 @@
 
 .clear-filters:hover {
   background: #191a1c;
-  color: #e8e3d4;
+  color: #DADBDC;
   transform: rotate(90deg);
 }
 
@@ -275,7 +275,7 @@
   transform: translate(-50%, -50%);
   width: 4px;
   height: 4px;
-  background: #e8e3d4;
+  background: #DADBDC;
   border-radius: 50%;
 }
 
@@ -406,7 +406,7 @@
 }
 
 .project-overlay h3 {
-  color: #e8e3d4;
+  color: #DADBDC;
   font-size: 1.1rem;
   font-weight: 500;
   margin: 0;
@@ -416,7 +416,7 @@
 }
 
 .project-arrow {
-  color: #e8e3d4;
+  color: #DADBDC;
   font-size: 1.2rem;
   transition: transform 0.3s ease;
 }

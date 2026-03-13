@@ -4,7 +4,10 @@
 
 /* --- RESET E VARIÁVEIS (A base do design) --- */
 :root {
-    --bg-color: #e8e3d4;
+    /*#e8e3d4 - seigneurie beige joliette*/
+    /*#DADBDC - gainsboro*/
+    /*#F4F5F5 - white smoke*/
+    --bg-color: #DADBDC;
     --text-color: #333333;
     --accent-color: #191a1c;
     --link-color: #0038ba;

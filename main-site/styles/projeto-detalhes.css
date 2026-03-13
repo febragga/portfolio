@@ -2,7 +2,7 @@
 
 .projeto-detalhes {
   flex: 1 0 auto;
-  background: #e8e3d4;
+  background: #DADBDC;
   position: relative;
   min-height: calc(100vh - 200px);
 }
@@ -301,7 +301,7 @@
   content: '';
   width: 8px;
   height: 8px;
-  background: #e8e3d4;
+  background: #DADBDC;
   border-radius: 50%;
 }
 

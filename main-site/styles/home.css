@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: center;
   min-height: calc(100vh - 140px);
-  background: #e8e3d4;
+  background: #DADBDC;
   position: relative;
   overflow: hidden;
   max-width: 100% !important;
@@ -251,6 +251,7 @@
 /* Signature Container */
 .signature-container {
   position: relative;
+  margin-left: 5px;
   display: flex;
   align-items: center;
   justify-content: center;

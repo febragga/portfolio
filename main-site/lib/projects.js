@@ -417,7 +417,7 @@ export const projects = [
     thumbnail: '/img/arquitetura/07_Escola/IN PROGRESS.jpg',
     category: 'edifício público',
     location: 'são paulo - sp',
-    year: 2025,
+    year: 2026,
     status: 'não concluído',
     description: 'Trabalho em andamento para a disciplina AUP0193 - Optativa/Projeto IV',
     content: 'Em progresso.', 
@@ -429,6 +429,49 @@ export const projects = [
         title: 'Leitura de Território',
         poster: '/img/arquitetura/07_Escola/base_reading/conjunto1.pdf'
       }
+    ]
+  },
+  {
+    id: 14,
+    slug: 'escola-lele',
+    title: 'Escola Transitória Modelo Rural',
+    image: '/img/arquitetura/08_lele/explodida4.png',
+    thumbnail: '/img/arquitetura/08_lele/explodida4.png',
+    category: 'edifício público',
+    location: 'abadiânia - go',
+    year: 2025,
+    status: 'concluído',
+    description: 'Trabalho feito como parte do método avaliativo da disciplina de Arquitetura e Insdústria',
+    content: 'O trabalho contemplou diversas partes de execução: Pesquisa, Modelgem, Renderização, e design da prancha resumo. No ínicio, tinhamos que documentar de forma precisa e fidedigna a obra de Lelé, explicando cada componente, fazendo também uma maquete de um elemento construtivo que tivemos um maior interesse, no qual foi escolhido a viga de um perfil complexo. Fizemos também um modelo 3D, 1:1, com fins de aprofundar nosso conhecimento em relação à obra. Foi uma ótima experiência de aprendizado em diversas áreas: InDesign, Photoshop, Sketchup, Layout(SKP), D5 Renderer, Enscape e Illustrator', 
+    gallery: [
+      {
+        id: 'pdf-01',
+        type: 'pdf',
+        src: '/img/arquitetura/08_lele/lelé-A2-v6.pdf',
+        title: 'Prancha A2',
+        poster: '/img/arquitetura/08_lele/lelé-A2-v6.pdf'
+      },
+      {
+        id: 'img-01',
+        type: 'image',
+        src: '/img/arquitetura/08_lele/Enscape_2025-04-28-17-14-02.png',
+        title: 'Render Exterior',
+        poster: '/img/arquitetura/08_lele/Enscape_2025-04-28-17-14-02.png'
+      },
+      {
+        id: 'img-02',
+        type: 'image',
+        src: '/img/arquitetura/08_lele/test.png',
+        title: 'Render Estilizado Exterior',
+        poster: '/img/arquitetura/08_lele/test.png'
+      },
+      {
+        id: 'img-03',
+        type: 'image',
+        src: '/img/arquitetura/08_lele/Image(1).png',
+        title: 'Render Interior',
+        poster: '/img/arquitetura/08_lele/Image(1).png'
+      },
     ]
   },
 ]

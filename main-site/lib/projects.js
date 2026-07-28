@@ -257,7 +257,7 @@ export const projects = [
     thumbnail: '/img/desenhos/Untitled-2.png',
     category: 'desenhos',
     location: '-',
-    year: 2024-2026,
+    year: '-',
     status: 'concluído',
     description: 'Alguns desenhos aleatórios, feitos à mão, outros digitais...',
     content: 'Conteúdo completo sobre os desenhos...',
@@ -477,10 +477,15 @@ export const projects = [
 ]
 
 // Extrair categorias, localizações e anos únicos automaticamente
-export const getCategories = () => [...new Set(projects.map(p => p.category))]
-export const getLocations = () => [...new Set(projects.map(p => p.location))]
+export const getCategories = () => [...new Set(projects.map(p => p.category))].sort()
+export const getLocations = () => [...new Set(projects.map(p => p.location))].filter(l => l && l !== '-').sort()
 export const getYears = () => [...new Set(projects.map(p => p.year))].sort((a, b) => b - a)
 export const getStatus = () => [...new Set(projects.map(p => p.status))]
+
+export const formatLabel = (value) => {
+  if (!value || value === '-') return 'Sem localização'
+  return value.charAt(0).toUpperCase() + value.slice(1)
+}
 
 // Buscar projeto por slug
 export const getProjectBySlug = (slug) => projects.find(p => p.slug === slug)

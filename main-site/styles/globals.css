@@ -4,26 +4,30 @@
 
 /* --- RESET E VARIÁVEIS (A base do design) --- */
 :root {
-    /*#e8e3d4 - seigneurie beige joliette*/
-    /*#DADBDC - gainsboro*/
-    /*#F4F5F5 - white smoke*/
-    --bg-color: #DADBDC;
-    --text-color: #333333;
-    --accent-color: #191a1c;
-    --link-color: #0038ba;
+    --bg-color: #0a0e17;
+    --bg-elevated: #111827;
+    --bg-surface: #161d2e;
+    --text-color: #d4dae8;
+    --accent-color: #e2e8f4;
+    --link-color: #4a7fff;
     --font-main: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     --max-width: 1100px;
     
     /* Tons de Design */
-    --primary: #191a1c;
-    --secondary: #515f7c;
-    --accent-red: #0038ba;
-    --accent-light: #515f7c;
-    --text-primary: #191a1c;
-    --text-secondary: #515f7c;
-    --border: #d0d0d0;
-    --bg-light: #f5f5f5;
-    --superblack: #191a1c;
+    --primary: #e2e8f4;
+    --secondary: #8494b0;
+    --accent-red: #4a7fff;
+    --accent-blue: #0038ba;
+    --accent-blue-bright: #4a7fff;
+    --accent-light: #9aa8c4;
+    --text-primary: #e2e8f4;
+    --text-secondary: #8494b0;
+    --border: rgba(132, 148, 176, 0.15);
+    --border-strong: rgba(132, 148, 176, 0.28);
+    --bg-light: #1a2235;
+    --superblack: #060a12;
+    --hover-bg: rgba(74, 127, 255, 0.1);
+    --signature-glow: rgba(0, 56, 186, 0.35);
     
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
@@ -76,7 +80,7 @@ header {
     justify-content: space-between;
     align-items: center;
     gap: 60px;
-    background-color: #191a1c;
+    background-color: var(--bg-elevated);
     width: 100%;
 }
 
@@ -92,7 +96,7 @@ header h1 {
     font-size: 1rem;
     font-weight: 400;
     letter-spacing: 2px;
-    color: #515f7c;
+    color: var(--text-secondary);
     margin: 0;
     line-height: 1.4;
 }
@@ -104,15 +108,15 @@ header h1 a {
 }
 
 header h1 a:hover {
-    color: #0038ba;
+    color: var(--accent-blue-bright);
 }
 
 header h1 a:visited {
-    color: #515f7c;
+    color: var(--text-secondary);
 }
 
 header h1 a:active {
-    color: #515f7c;
+    color: var(--text-secondary);
 }
 
 header nav {
@@ -128,7 +132,7 @@ header nav ul {
 
 header nav a {
     text-decoration: none;
-    color: #515f7c;
+    color: var(--text-secondary);
     font-family: 'Orator Std', monospace;
     font-size: 0.9rem;
     letter-spacing: 1px;
@@ -137,15 +141,15 @@ header nav a {
 }
 
 header nav a:hover {
-    color: #0038ba;
+    color: var(--accent-blue-bright);
 }
 
 header nav a:visited {
-    color: #515f7c;
+    color: var(--text-secondary);
 }
 
 header nav a:active {
-    color: #515f7c;
+    color: var(--text-secondary);
 }
 
 /* --- MINIMAL HEADER --- */
@@ -178,14 +182,14 @@ header nav a:active {
 .logo-square {
     width: 20px;
     height: 20px;
-    border: 1px solid #191a1c;
+    border: 1px solid var(--text-secondary);
     background: transparent;
     transition: all 0.3s ease;
 }
 
 .header-logo:hover .logo-square {
-    background: #191a1c;
-    border-color: #0038ba;
+    background: var(--accent-blue-bright);
+    border-color: var(--accent-blue-bright);
 }
 
 .minimal-nav {
@@ -198,7 +202,7 @@ header nav a:active {
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: #191a1c;
+    background: var(--text-secondary);
     display: block;
     text-decoration: none;
     transition: all 0.3s ease;
@@ -206,7 +210,7 @@ header nav a:active {
 }
 
 .nav-dot:hover {
-    background: #0038ba;
+    background: var(--accent-blue-bright);
     transform: scale(1.3);
 }
 
@@ -219,7 +223,7 @@ header nav a:active {
     width: 0;
     height: 0;
     border-radius: 50%;
-    background: rgba(0, 56, 186, 0.2);
+    background: var(--hover-bg);
     transition: width 0.3s ease, height 0.3s ease;
 }
 
@@ -265,12 +269,12 @@ h2 {
 
 /* --- RODAPÉ --- */
 footer {
-    background: #191a1c;
-    color: #515f7c;
+    background: var(--bg-elevated);
+    color: var(--text-secondary);
     padding: 0;
     margin-top: auto;
     width: 100%;
-    border-top: 1px solid #333;
+    border-top: 1px solid var(--border);
 }
 
 .footer-wrapper {
@@ -312,7 +316,7 @@ footer {
 
 .footer-center p {
     font-size: 0.9rem;
-    color: #515f7c;
+    color: var(--text-secondary);
     margin: 0;
     letter-spacing: 0.5px;
     font-family: 'Orator Std', monospace;
@@ -326,14 +330,14 @@ footer {
 }
 
 .footer-right a {
-    color: #515f7c;
+    color: var(--text-secondary);
     text-decoration: none;
     font-size: 0.9rem;
     transition: color 0.3s ease;
 }
 
 .footer-right a:hover {
-    color: #0038ba;
+    color: var(--accent-blue-bright);
 }
 
 /* --- MINIMAL FOOTER --- */
@@ -350,8 +354,8 @@ footer {
 .footer-line {
     width: 100%;
     height: 1px;
-    background: linear-gradient(90deg, transparent 0%, #191a1c 20%, #191a1c 80%, transparent 100%);
-    opacity: 0.3;
+    background: linear-gradient(90deg, transparent 0%, var(--border-strong) 20%, var(--border-strong) 80%, transparent 100%);
+    opacity: 0.6;
     margin-bottom: 2rem;
 }
 
@@ -373,7 +377,7 @@ footer {
 .footer-signature-img {
     height: 35px;
     width: auto;
-    filter: brightness(0) saturate(100%) invert(15%) sepia(95%) saturate(5000%) hue-rotate(220deg) brightness(0.9);
+    filter: brightness(0) saturate(100%) invert(27%) sepia(98%) saturate(2500%) hue-rotate(215deg) brightness(1.15);
     opacity: 0.9;
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
@@ -388,7 +392,7 @@ footer {
     align-items: center;
     gap: 12px;
     font-size: 0.85rem;
-    color: #515f7c;
+    color: var(--text-secondary);
     font-family: 'Orator Std', monospace;
     letter-spacing: 0.5px;
 }
@@ -408,17 +412,17 @@ footer {
 
 .footer-links span {
     opacity: 0.5;
-    color: #515f7c;
+    color: var(--text-secondary);
 }
 
 .footer-link {
-    color: #515f7c;
+    color: var(--text-secondary);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .footer-link:hover {
-    color: #0038ba;
+    color: var(--accent-blue-bright);
 }
 
 /* --- MOBILE (Celular) --- */

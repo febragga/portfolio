@@ -2,8 +2,15 @@
 
 import { useState, useMemo, useEffect, useRef } from 'react'
 import Link from 'next/link'
-import { projects, getCategories, getLocations, getYears, getStatus } from '@/lib/projects'
+import { projects, getCategories, getLocations, getYears, getStatus, formatLabel } from '@/lib/projects'
 import '@/styles/projetos.css'
+
+const FILTER_SECTIONS = [
+  { key: 'category', label: 'Tipologia', getOptions: getCategories },
+  { key: 'year', label: 'Ano', getOptions: getYears },
+  { key: 'status', label: 'Status', getOptions: getStatus },
+  { key: 'location', label: 'Local', getOptions: getLocations },
+]
 
 export default function Projetos() {
   const [filters, setFilters] = useState({
@@ -13,15 +20,7 @@ export default function Projetos() {
     status: null,
   })
 
-  const [openFilters, setOpenFilters] = useState({
-    category: false,
-    location: false,
-    year: false,
-    status: false,
-  })
-
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
-
   const canvasRef = useRef(null)
 
   useEffect(() => {
@@ -49,7 +48,7 @@ export default function Projetos() {
         size: Math.random() * 1.5 + 0.5,
         speedX: (Math.random() - 0.5) * 0.3,
         speedY: (Math.random() - 0.5) * 0.3,
-        opacity: Math.random() * 0.2 + 0.05,
+        opacity: Math.random() * 0.25 + 0.05,
       })
     }
 
@@ -65,7 +64,7 @@ export default function Projetos() {
 
         ctx.beginPath()
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(0, 56, 186, ${particle.opacity})`
+        ctx.fillStyle = `rgba(74, 127, 255, ${particle.opacity})`
         ctx.fill()
       })
 
@@ -79,7 +78,7 @@ export default function Projetos() {
             ctx.beginPath()
             ctx.moveTo(particle.x, particle.y)
             ctx.lineTo(otherParticle.x, otherParticle.y)
-            ctx.strokeStyle = `rgba(0, 56, 186, ${0.08 * (1 - distance / 100)})`
+            ctx.strokeStyle = `rgba(74, 127, 255, ${0.1 * (1 - distance / 100)})`
             ctx.lineWidth = 0.5
             ctx.stroke()
           }
@@ -97,7 +96,6 @@ export default function Projetos() {
     }
   }, [])
 
-  // Filtrar projetos baseado nos filtros selecionados
   const filteredProjects = useMemo(() => {
     return projects.filter(project => {
       if (filters.category && project.category !== filters.category) return false
@@ -115,173 +113,69 @@ export default function Projetos() {
     }))
   }
 
-  const toggleFilter = (filterType) => {
-    setOpenFilters(prev => ({
-      ...prev,
-      [filterType]: !prev[filterType]
-    }))
-  }
-
-  const toggleMobileFilters = () => {
-    setMobileFiltersOpen(!mobileFiltersOpen)
-  }
-
   const clearFilters = () => {
     setFilters({ category: null, location: null, year: null, status: null })
   }
 
-  const hasActiveFilters = filters.category || filters.location || filters.year || filters.status
+  const activeFilters = FILTER_SECTIONS.flatMap(({ key, label }) => {
+    const value = filters[key]
+    if (!value) return []
+    const display = key === 'year' ? String(value) : formatLabel(value)
+    return [{ key, label, value, display }]
+  })
+
+  const hasActiveFilters = activeFilters.length > 0
 
   return (
     <main className="projetos-container">
       <canvas ref={canvasRef} className="projetos-canvas" />
-      
+
       <div className="projetos-wrapper">
-        {/* SIDEBAR DE FILTROS */}
         <aside className="filters-sidebar">
           <div className="filters-header">
-            <div className="filter-title-visual">
-              <div className={`filter-square ${mobileFiltersOpen ? 'rotated' : ''}`} />
-              <button 
-                className="filter-label"
-                onClick={toggleMobileFilters}
-              >
-                Filtros
-              </button>
-            </div>
+            <h2 className="filters-title">Projetos</h2>
+            <button
+              type="button"
+              className="filters-mobile-toggle"
+              onClick={() => setMobileFiltersOpen(!mobileFiltersOpen)}
+              aria-expanded={mobileFiltersOpen}
+            >
+              {mobileFiltersOpen ? 'Ocultar filtros' : 'Filtrar'}
+            </button>
+          </div>
+
+          <div className={`filters-panel ${mobileFiltersOpen ? 'open' : ''}`}>
+            {FILTER_SECTIONS.map(({ key, label, getOptions }) => (
+              <div key={key} className="filter-section">
+                <span className="filter-section-label">{label}</span>
+                <div className="filter-pills" role="group" aria-label={label}>
+                  {getOptions().map(option => {
+                    const isActive = filters[key] === option
+                    const display = key === 'year' ? String(option) : formatLabel(option)
+                    return (
+                      <button
+                        key={option}
+                        type="button"
+                        className={`filter-pill ${isActive ? 'active' : ''}`}
+                        aria-pressed={isActive}
+                        onClick={() => handleFilterChange(key, option)}
+                      >
+                        {display}
+                      </button>
+                    )
+                  })}
+                </div>
+              </div>
+            ))}
+
             {hasActiveFilters && (
-              <button className="clear-filters" onClick={clearFilters}>
-                <span className="clear-icon">×</span>
+              <button type="button" className="clear-all-btn" onClick={clearFilters}>
+                Limpar filtros
               </button>
             )}
           </div>
-
-          {/* Filter Categories */}
-          <div className={`filter-categories ${mobileFiltersOpen ? 'open' : ''}`}>
-
-          {/* CATEGORIA */}
-          <div className={`filter-group ${openFilters.category ? 'active' : ''}`}>
-            <button 
-              className="filter-title"
-              onClick={() => toggleFilter('category')}
-            >
-              <div className="filter-indicator" />
-              <span>Tipologia</span>
-              <div className={`filter-toggle ${openFilters.category ? 'open' : ''}`}>
-                <div className="toggle-line toggle-line-1" />
-                <div className="toggle-line toggle-line-2" />
-              </div>
-            </button>
-            <div className="filter-options">
-              {getCategories().map(cat => (
-                <label key={cat} className={`filter-option ${filters.category === cat ? 'active' : ''}`}>
-                  <div className="custom-checkbox">
-                    <input
-                      type="checkbox"
-                      checked={filters.category === cat}
-                      onChange={() => handleFilterChange('category', cat)}
-                    />
-                    <div className="checkbox-visual" />
-                  </div>
-                  <span>{cat}</span>
-                </label>
-              ))}
-            </div>
-          </div>
-
-          {/* LOCALIZAÇÃO */}
-          <div className={`filter-group ${openFilters.location ? 'active' : ''}`}>
-            <button 
-              className="filter-title"
-              onClick={() => toggleFilter('location')}
-            >
-              <div className="filter-indicator" />
-              <span>Localização</span>
-              <div className={`filter-toggle ${openFilters.location ? 'open' : ''}`}>
-                <div className="toggle-line toggle-line-1" />
-                <div className="toggle-line toggle-line-2" />
-              </div>
-            </button>
-            <div className="filter-options">
-              {getLocations().map(loc => (
-                <label key={loc} className={`filter-option ${filters.location === loc ? 'active' : ''}`}>
-                  <div className="custom-checkbox">
-                    <input
-                      type="checkbox"
-                      checked={filters.location === loc}
-                      onChange={() => handleFilterChange('location', loc)}
-                    />
-                    <div className="checkbox-visual" />
-                  </div>
-                  <span>{loc}</span>
-                </label>
-              ))}
-            </div>
-          </div>
-
-          {/* ANO */}
-          <div className={`filter-group ${openFilters.year ? 'active' : ''}`}>
-            <button 
-              className="filter-title"
-              onClick={() => toggleFilter('year')}
-            >
-              <div className="filter-indicator" />
-              <span>Ano</span>
-              <div className={`filter-toggle ${openFilters.year ? 'open' : ''}`}>
-                <div className="toggle-line toggle-line-1" />
-                <div className="toggle-line toggle-line-2" />
-              </div>
-            </button>
-            <div className="filter-options">
-              {getYears().map(year => (
-                <label key={year} className={`filter-option ${filters.year === year ? 'active' : ''}`}>
-                  <div className="custom-checkbox">
-                    <input
-                      type="checkbox"
-                      checked={filters.year === year}
-                      onChange={() => handleFilterChange('year', year)}
-                    />
-                    <div className="checkbox-visual" />
-                  </div>
-                  <span>{year}</span>
-                </label>
-              ))}
-            </div>
-          </div>
-
-          {/* STATUS */}
-          <div className={`filter-group ${openFilters.status ? 'active' : ''}`}>
-            <button 
-              className="filter-title"
-              onClick={() => toggleFilter('status')}
-            >
-              <div className="filter-indicator" />
-              <span>Status</span>
-              <div className={`filter-toggle ${openFilters.status ? 'open' : ''}`}>
-                <div className="toggle-line toggle-line-1" />
-                <div className="toggle-line toggle-line-2" />
-              </div>
-            </button>
-            <div className="filter-options">
-              {getStatus().map(st => (
-                <label key={st} className={`filter-option ${filters.status === st ? 'active' : ''}`}>
-                  <div className="custom-checkbox">
-                    <input
-                      type="checkbox"
-                      checked={filters.status === st}
-                      onChange={() => handleFilterChange('status', st)}
-                    />
-                    <div className="checkbox-visual" />
-                  </div>
-                  <span>{st}</span>
-                </label>
-              ))}
-            </div>
-          </div>
-          </div>
         </aside>
 
-        {/* GRID DE PROJETOS */}
         <div className="projetos-content">
           <div className="projetos-header">
             <div className="projetos-count">
@@ -290,6 +184,23 @@ export default function Projetos() {
             </div>
             <div className="projects-line" />
           </div>
+
+          {hasActiveFilters && (
+            <div className="active-filters-bar">
+              {activeFilters.map(({ key, value, display }) => (
+                <button
+                  key={`${key}-${value}`}
+                  type="button"
+                  className="active-filter-chip"
+                  onClick={() => handleFilterChange(key, value)}
+                  aria-label={`Remover filtro ${display}`}
+                >
+                  {display}
+                  <span className="chip-remove">×</span>
+                </button>
+              ))}
+            </div>
+          )}
 
           <div className="projetos-grid">
             {filteredProjects.map((project, index) => (
@@ -315,7 +226,7 @@ export default function Projetos() {
                   <div className="project-border" />
                 </div>
                 <div className="project-meta">
-                  <span className="project-category">{project.category}</span>
+                  <span className="project-category">{formatLabel(project.category)}</span>
                   <span className="project-year">{project.year}</span>
                 </div>
               </Link>
@@ -330,6 +241,11 @@ export default function Projetos() {
                 <div className="empty-square" />
               </div>
               <p>Nenhum projeto encontrado</p>
+              {hasActiveFilters && (
+                <button type="button" className="clear-all-btn inline" onClick={clearFilters}>
+                  Limpar filtros
+                </button>
+              )}
             </div>
           )}
         </div>

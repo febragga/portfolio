@@ -41,14 +41,14 @@ export default function HomePage() {
         size: Math.random() * 2 + 0.5,
         speedX: (Math.random() - 0.5) * 0.5,
         speedY: (Math.random() - 0.5) * 0.5,
-        opacity: Math.random() * 0.3 + 0.1,
+        opacity: Math.random() * 0.35 + 0.08,
       });
     }
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      particles.forEach((particle, i) => {
+      particles.forEach((particle) => {
         particle.x += particle.speedX;
         particle.y += particle.speedY;
 
@@ -68,7 +68,7 @@ export default function HomePage() {
 
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(0, 56, 186, ${particle.opacity})`;
+        ctx.fillStyle = `rgba(74, 127, 255, ${particle.opacity})`;
         ctx.fill();
       });
 
@@ -82,7 +82,7 @@ export default function HomePage() {
             ctx.beginPath();
             ctx.moveTo(particle.x, particle.y);
             ctx.lineTo(otherParticle.x, otherParticle.y);
-            ctx.strokeStyle = `rgba(0, 56, 186, ${0.1 * (1 - distance / 120)})`;
+            ctx.strokeStyle = `rgba(74, 127, 255, ${0.12 * (1 - distance / 120)})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
@@ -101,10 +101,16 @@ export default function HomePage() {
     };
   }, []);
 
+  const navItems = [
+    { href: '/projetos', label: 'Projetos', className: 'nav-item-1' },
+    { href: '/sobre', label: 'Sobre', className: 'nav-item-2' },
+    { href: '/contato', label: 'Contato', className: 'nav-item-3' },
+  ];
+
   return (
     <main className="home-main">
       <canvas ref={canvasRef} className="home-canvas" />
-      
+
       <div className="geometric-grid">
         {Array.from({ length: 12 }).map((_, i) => (
           <div key={i} className="grid-line" style={{ '--delay': i * 0.1 + 's' }} />
@@ -125,22 +131,19 @@ export default function HomePage() {
             alt="Assinatura Fernando Braga"
             className="home-signature"
           />
+          <p className="home-tagline">Arquitetura · Urbanismo</p>
         </div>
 
-        <div className="navigation-grid">
-          <Link href="/projetos" className="nav-square nav-square-1">
-            <div className="square-inner" />
-          </Link>
-          <Link href="/sobre" className="nav-square nav-square-2">
-            <div className="square-inner" />
-          </Link>
-          <Link href="/contato" className="nav-square nav-square-3">
-            <div className="square-inner" />
-          </Link>
-          <Link href="/projetos" className="nav-square nav-square-4">
-            <div className="square-inner" />
-          </Link>
-        </div>
+        <nav className="navigation-grid" aria-label="Navegação principal">
+          {navItems.map(({ href, label, className }) => (
+            <Link key={href} href={href} className={`nav-item ${className}`}>
+              <div className="nav-square">
+                <div className="square-inner" />
+              </div>
+              <span className="nav-label">{label}</span>
+            </Link>
+          ))}
+        </nav>
       </div>
     </main>
   );

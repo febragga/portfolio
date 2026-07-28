@@ -4,7 +4,7 @@
   width: 100%;
   max-width: 100%;
   padding: 80px 5%;
-  background: #DADBDC;
+  background: var(--bg-color);
   position: relative;
   min-height: calc(100vh - 200px);
   flex: 1 0 auto;
@@ -54,13 +54,13 @@
 .section-square {
   width: 16px;
   height: 16px;
-  border: 1px solid #191a1c;
+  border: 1px solid var(--text-primary);
   background: transparent;
   transition: all 0.3s ease;
 }
 
 .section-title-visual:hover .section-square {
-  background: #191a1c;
+  background: var(--text-primary);
   transform: rotate(45deg);
 }
 
@@ -69,7 +69,7 @@
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 2.5rem;
   font-weight: 300;
-  color: #191a1c;
+  color: var(--text-primary);
   margin: 0;
   letter-spacing: -1.5px;
   line-height: 1.2;
@@ -82,7 +82,7 @@
 .section-line {
   flex: 1;
   height: 1px;
-  background: linear-gradient(90deg, #191a1c 0%, transparent 100%);
+  background: linear-gradient(90deg, var(--text-primary) 0%, transparent 100%);
   opacity: 0.2;
 }
 
@@ -120,14 +120,14 @@
 }
 
 .trajectory-card:hover {
-  border-color: #191a1c;
+  border-color: var(--text-primary);
   transform: translateY(-6px);
 }
 
 .trajectory-year {
   font-family: 'Orator Std', monospace;
   font-size: 0.85rem;
-  color: #0038ba;
+  color: var(--accent-blue-bright);
   font-weight: 600;
   letter-spacing: 1px;
   padding: 20px 20px 15px;
@@ -139,7 +139,7 @@
   width: 100%;
   aspect-ratio: 16 / 9;
   overflow: hidden;
-  background: #f5f5f5;
+  background: var(--bg-surface);
 }
 
 .trajectory-image {
@@ -176,7 +176,7 @@
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 1.3rem;
   font-weight: 600;
-  color: #191a1c;
+  color: var(--text-primary);
   margin: 0;
   letter-spacing: -0.5px;
 }
@@ -185,7 +185,7 @@
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 0.95rem;
   font-weight: 500;
-  color: #515f7c;
+  color: var(--text-secondary);
   margin: 0;
   letter-spacing: 0.2px;
 }
@@ -194,7 +194,7 @@
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 0.9rem;
   line-height: 1.7;
-  color: #515f7c;
+  color: var(--text-secondary);
   margin: 0;
   letter-spacing: 0.1px;
 }
@@ -232,7 +232,7 @@
 }
 
 .skill-card:hover {
-  border-color: #191a1c;
+  border-color: var(--text-primary);
   background: rgba(25, 26, 28, 0.02);
   transform: translateY(-4px);
 }
@@ -248,7 +248,7 @@
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 1rem;
   font-weight: 600;
-  color: #191a1c;
+  color: var(--text-primary);
   margin: 0;
   letter-spacing: 0.2px;
 }
@@ -257,7 +257,7 @@
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 0.85rem;
   font-weight: 600;
-  color: #0038ba;
+  color: var(--accent-blue-bright);
   background: rgba(0, 56, 186, 0.1);
   padding: 4px 10px;
   border-radius: 4px;
@@ -276,7 +276,7 @@
 .skill-bar {
   width: var(--width);
   height: 100%;
-  background: linear-gradient(90deg, #0038ba 0%, #515f7c 100%);
+  background: linear-gradient(90deg, var(--accent-blue-bright) 0%, var(--text-secondary) 100%);
   border-radius: 3px;
   transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
@@ -346,7 +346,7 @@
 }
 
 .certificate-card:hover {
-  border-color: #191a1c;
+  border-color: var(--text-primary);
   transform: translateY(-4px);
 }
 
@@ -368,7 +368,7 @@
 
 .certificate-icon {
   font-size: 2.5rem;
-  color: #0038ba;
+  color: var(--accent-blue-bright);
   opacity: 0.4;
 }
 
@@ -392,7 +392,7 @@
   align-items: center;
   gap: 8px;
   padding: 12px 20px;
-  background: #0038ba;
+  background: var(--accent-blue-bright);
   color: white;
   border: none;
   border-radius: 0;
@@ -406,7 +406,7 @@
 }
 
 .overlay-button:hover {
-  background: #191a1c;
+  background: var(--text-primary);
   transform: translateY(-2px);
 }
 
@@ -422,7 +422,7 @@
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 1rem;
   font-weight: 600;
-  color: #191a1c;
+  color: var(--text-primary);
   margin: 0;
   letter-spacing: 0.2px;
   line-height: 1.4;
@@ -431,7 +431,7 @@
 .certificate-issuer {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 0.85rem;
-  color: #515f7c;
+  color: var(--text-secondary);
   margin: 0;
   letter-spacing: 0.1px;
 }
@@ -439,7 +439,7 @@
 .certificate-date {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 0.8rem;
-  color: #0038ba;
+  color: var(--accent-blue-bright);
   font-weight: 600;
   margin-top: auto;
   letter-spacing: 0.2px;
@@ -451,9 +451,9 @@
   gap: 6px;
   padding: 10px 16px;
   background: transparent;
-  color: #191a1c;
+  color: var(--text-primary);
   text-decoration: none;
-  border: 1px solid #191a1c;
+  border: 1px solid var(--text-primary);
   font-size: 0.85rem;
   font-weight: 600;
   transition: all 0.3s ease;
@@ -465,14 +465,14 @@
 }
 
 .certificate-link:hover {
-  background: #191a1c;
-  color: #DADBDC;
+  background: var(--text-primary);
+  color: var(--bg-color);
 }
 
 .certificates-empty {
   text-align: center;
   padding: 80px 20px;
-  color: #515f7c;
+  color: var(--text-secondary);
 }
 
 .empty-icon {

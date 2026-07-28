@@ -48,7 +48,7 @@ export default function ProjetoDetailClient({ project, previousProject, nextProj
 
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(0, 56, 186, ${particle.opacity})`;
+        ctx.fillStyle = `rgba(74, 127, 255, ${particle.opacity})`;
         ctx.fill();
       });
 
@@ -62,7 +62,7 @@ export default function ProjetoDetailClient({ project, previousProject, nextProj
             ctx.beginPath();
             ctx.moveTo(particle.x, particle.y);
             ctx.lineTo(otherParticle.x, otherParticle.y);
-            ctx.strokeStyle = `rgba(0, 56, 186, ${0.08 * (1 - distance / 100)})`;
+            ctx.strokeStyle = `rgba(74, 127, 255, ${0.1 * (1 - distance / 100)})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }

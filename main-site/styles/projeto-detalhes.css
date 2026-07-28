@@ -2,7 +2,7 @@
 
 .projeto-detalhes {
   flex: 1 0 auto;
-  background: #DADBDC;
+  background: var(--bg-color);
   position: relative;
   min-height: calc(100vh - 200px);
 }
@@ -32,7 +32,7 @@
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  color: #191a1c;
+  color: var(--text-primary);
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 500;
@@ -45,24 +45,24 @@
 .back-square {
   width: 12px;
   height: 12px;
-  border: 1px solid #191a1c;
+  border: 1px solid var(--text-primary);
   background: transparent;
   transition: all 0.3s ease;
 }
 
 .back-link:hover .back-square {
-  background: #191a1c;
+  background: var(--text-primary);
   transform: rotate(45deg);
 }
 
 .back-link:hover {
-  color: #0038ba;
+  color: var(--accent-blue-bright);
 }
 
 .header-line {
   flex: 1;
   height: 1px;
-  background: linear-gradient(90deg, #191a1c 0%, transparent 100%);
+  background: linear-gradient(90deg, var(--text-primary) 0%, transparent 100%);
   opacity: 0.2;
 }
 
@@ -121,7 +121,7 @@
 .title-square {
   width: 16px;
   height: 16px;
-  border: 1px solid #191a1c;
+  border: 1px solid var(--text-primary);
   background: transparent;
   flex-shrink: 0;
   margin-top: 8px;
@@ -129,7 +129,7 @@
 }
 
 .projeto-title-section:hover .title-square {
-  background: #191a1c;
+  background: var(--text-primary);
   transform: rotate(45deg);
 }
 
@@ -137,7 +137,7 @@
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 2.5rem;
   font-weight: 300;
-  color: #191a1c;
+  color: var(--text-primary);
   margin: 0;
   letter-spacing: -1.5px;
   line-height: 1.3;
@@ -162,7 +162,7 @@
 .meta-indicator {
   width: 4px;
   height: 4px;
-  background: #191a1c;
+  background: var(--text-primary);
   border-radius: 50%;
   margin-top: 8px;
   flex-shrink: 0;
@@ -170,7 +170,7 @@
 }
 
 .meta-item:hover .meta-indicator {
-  background: #0038ba;
+  background: var(--accent-blue-bright);
   transform: scale(1.5);
 }
 
@@ -184,7 +184,7 @@
 .meta-label {
   font-family: 'Orator Std', monospace;
   font-size: 0.75rem;
-  color: #515f7c;
+  color: var(--text-secondary);
   font-weight: 400;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -193,7 +193,7 @@
 .meta-value {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 1rem;
-  color: #191a1c;
+  color: var(--text-primary);
   font-weight: 500;
   letter-spacing: 0.2px;
 }
@@ -206,7 +206,7 @@
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 1rem;
   line-height: 1.8;
-  color: #515f7c;
+  color: var(--text-secondary);
   margin: 0;
   letter-spacing: 0.2px;
 }
@@ -222,7 +222,7 @@
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 1.05rem;
   line-height: 1.9;
-  color: #191a1c;
+  color: var(--text-primary);
   margin: 0;
   letter-spacing: 0.1px;
   text-align: justify;
@@ -237,7 +237,7 @@
 }
 
 .projeto-body img:hover {
-  border-color: #191a1c;
+  border-color: var(--text-primary);
 }
 
 /* Navegação Anterior/Próximo */
@@ -263,11 +263,11 @@
   border: 1px solid rgba(25, 26, 28, 0.1);
   background: transparent;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  color: #191a1c;
+  color: var(--text-primary);
 }
 
 .nav-link:hover {
-  border-color: #191a1c;
+  border-color: var(--text-primary);
   background: rgba(25, 26, 28, 0.02);
   transform: translateY(-4px);
 }
@@ -283,7 +283,7 @@
 .nav-square {
   width: 40px;
   height: 40px;
-  border: 1px solid #191a1c;
+  border: 1px solid var(--text-primary);
   background: transparent;
   flex-shrink: 0;
   transition: all 0.3s ease;
@@ -293,7 +293,7 @@
 }
 
 .nav-link:hover .nav-square {
-  background: #191a1c;
+  background: var(--text-primary);
   transform: rotate(45deg);
 }
 
@@ -301,7 +301,7 @@
   content: '';
   width: 8px;
   height: 8px;
-  background: #DADBDC;
+  background: var(--bg-color);
   border-radius: 50%;
 }
 
@@ -315,7 +315,7 @@
 .nav-label {
   font-family: 'Orator Std', monospace;
   font-size: 0.75rem;
-  color: #515f7c;
+  color: var(--text-secondary);
   font-weight: 400;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -324,7 +324,7 @@
 .nav-title {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 1.1rem;
-  color: #191a1c;
+  color: var(--text-primary);
   font-weight: 500;
   letter-spacing: -0.3px;
   line-height: 1.4;
@@ -333,7 +333,7 @@
 .nav-arrow {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 1.5rem;
-  color: #0038ba;
+  color: var(--accent-blue-bright);
   font-weight: 300;
   flex-shrink: 0;
   transition: transform 0.3s ease;

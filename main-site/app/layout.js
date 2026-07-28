@@ -13,10 +13,10 @@ export default function RootLayout({ children }) {
           <Link href="/" className="header-logo">
             <div className="logo-square" />
           </Link>
-          <nav className="minimal-nav">
-            <Link href="/projetos" className="nav-dot" />
-            <Link href="/sobre" className="nav-dot" />
-            <Link href="/contato" className="nav-dot" />
+          <nav className="minimal-nav" aria-label="Navegação">
+            <Link href="/projetos" className="nav-dot" title="Projetos" />
+            <Link href="/sobre" className="nav-dot" title="Sobre" />
+            <Link href="/contato" className="nav-dot" title="Contato" />
           </nav>
         </header>
 

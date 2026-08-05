@@ -130,8 +130,15 @@ export default function ProjetoDetailClient({ project, previousProject, nextProj
               <div className="meta-item">
                 <div className="meta-indicator" />
                 <div className="meta-content">
-                  <span className="meta-label">Tipo</span>
+                  <span className="meta-label">Tipologia</span>
                   <span className="meta-value">{project.category}</span>
+                </div>
+              </div>
+              <div className="meta-item meta-item-project-type">
+                <div className="meta-indicator" />
+                <div className="meta-content">
+                  <span className="meta-label">Natureza do projeto</span>
+                  <span className="meta-value">{project.projectType}</span>
                 </div>
               </div>
               <div className="meta-item">

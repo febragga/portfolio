@@ -2,10 +2,11 @@
 
 import { useState, useMemo, useEffect, useRef } from 'react'
 import Link from 'next/link'
-import { projects, getCategories, getLocations, getYears, getStatus, formatLabel } from '@/lib/projects'
+import { projects, getCategories, getProjectTypes, getLocations, getYears, getStatus, formatLabel } from '@/lib/projects'
 import '@/styles/projetos.css'
 
 const FILTER_SECTIONS = [
+  { key: 'projectType', label: 'Natureza do projeto', getOptions: getProjectTypes, featured: true },
   { key: 'category', label: 'Tipologia', getOptions: getCategories },
   { key: 'year', label: 'Ano', getOptions: getYears },
   { key: 'status', label: 'Status', getOptions: getStatus },
@@ -14,6 +15,7 @@ const FILTER_SECTIONS = [
 
 export default function Projetos() {
   const [filters, setFilters] = useState({
+    projectType: null,
     category: null,
     location: null,
     year: null,
@@ -98,6 +100,7 @@ export default function Projetos() {
 
   const filteredProjects = useMemo(() => {
     return projects.filter(project => {
+      if (filters.projectType && project.projectType !== filters.projectType) return false
       if (filters.category && project.category !== filters.category) return false
       if (filters.location && project.location !== filters.location) return false
       if (filters.year && project.year !== filters.year) return false
@@ -114,7 +117,7 @@ export default function Projetos() {
   }
 
   const clearFilters = () => {
-    setFilters({ category: null, location: null, year: null, status: null })
+    setFilters({ projectType: null, category: null, location: null, year: null, status: null })
   }
 
   const activeFilters = FILTER_SECTIONS.flatMap(({ key, label }) => {
@@ -145,8 +148,8 @@ export default function Projetos() {
           </div>
 
           <div className={`filters-panel ${mobileFiltersOpen ? 'open' : ''}`}>
-            {FILTER_SECTIONS.map(({ key, label, getOptions }) => (
-              <div key={key} className="filter-section">
+            {FILTER_SECTIONS.map(({ key, label, getOptions, featured }) => (
+              <div key={key} className={`filter-section ${featured ? 'filter-section-featured' : ''}`}>
                 <span className="filter-section-label">{label}</span>
                 <div className="filter-pills" role="group" aria-label={label}>
                   {getOptions().map(option => {
@@ -226,7 +229,10 @@ export default function Projetos() {
                   <div className="project-border" />
                 </div>
                 <div className="project-meta">
-                  <span className="project-category">{formatLabel(project.category)}</span>
+                  <div className="project-meta-labels">
+                    <span className="project-type">{formatLabel(project.projectType)}</span>
+                    <span className="project-category">{formatLabel(project.category)}</span>
+                  </div>
                   <span className="project-year">{project.year}</span>
                 </div>
               </Link>

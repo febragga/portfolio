@@ -6,6 +6,7 @@ export const projects = [
     image: '/img/arquitetura/01_Estúdio_A/render_04.png',
     thumbnail: '/img/arquitetura/01_Estúdio_A/render_04.png',
     category: 'comercial',
+    projectType: 'projeto acadêmico',
     location: 'são paulo - sp',
     year: 2025,
     status: 'projeto',
@@ -49,6 +50,7 @@ export const projects = [
     image: '/img/arquitetura/02_ShigeruBan/test_2.png',
     thumbnail: '/img/arquitetura/02_ShigeruBan/test_2.png',
     category: 'habitação',
+    projectType: 'projeto de extensão',
     location: 'Bienal de Arquitetura de São Paulo',
     year: 2025,
     status: 'concluído',
@@ -113,6 +115,7 @@ export const projects = [
     image: '/img/arquitetura/03_Interior_Terracota/untitled.png',
     thumbnail: '/img/arquitetura/03_Interior_Terracota/untitled.png',
     category: 'habitação',
+    projectType: 'projeto pessoal',
     location: '-',
     year: 2024,
     status: 'projeto',
@@ -127,6 +130,7 @@ export const projects = [
     image: '/img/arquitetura/04_Projeto2/Image.png',
     thumbnail: '/img/arquitetura/04_Projeto2/Image.png',
     category: 'Uso misto',
+    projectType: 'projeto acadêmico',
     location: 'são paulo - sp',
     year: 2024,
     status: 'concluído',
@@ -170,6 +174,7 @@ export const projects = [
     image: '/img/arquitetura/05_EdConstrução/unnamed.jpg',
     thumbnail: '/img/arquitetura/05_EdConstrução/unnamed.jpg',
     category: 'coorporativo',
+    projectType: 'projeto acadêmico',
     location: 'são paulo - sp',
     year: 2025,
     status: 'projeto',
@@ -199,6 +204,7 @@ export const projects = [
     image: '/img/arquitetura/06_casa_do_lago/2_ps_pp.png',
     thumbnail: '/img/arquitetura/06_casa_do_lago/2_ips.png',
     category: 'habitação unifamiliar',
+    projectType: 'projeto pessoal',
     location: 'uberlândia - mg',
     year: 2026,
     status: 'projeto',
@@ -256,6 +262,7 @@ export const projects = [
     image: '/img/desenhos/Untitled-1.png',
     thumbnail: '/img/desenhos/Untitled-2.png',
     category: 'desenhos',
+    projectType: 'projeto pessoal',
     location: '-',
     year: '-',
     status: 'concluído',
@@ -294,117 +301,93 @@ export const projects = [
   },
   {
     id: 8,
-    slug: 'red-blue-chair',
-    title: 'Red Blue Chair',
+    slug: 'objetos-3d',
+    title: 'Objetos 3D',
     image: '/img/objetos/02_REDblueChair/render_5.jpg',
     thumbnail: '/img/objetos/02_REDblueChair/render_5.jpg',
     category: 'Objeto 3D',
+    projectType: 'projeto pessoal',
     location: '-',
-    year: 2025,
+    year: '–',
     status: 'concluído',
-    description: 'Modelagem 3D de uma cadeira inspirada na obra de Gerrit Rietveld.',
-    content: 'Feita no 3DS Max, com renderização no Arnold.', 
+    description: 'Coleção de modelagens 3D: Red Blue Chair, inspirada na obra de Gerrit Rietveld; MB Wassily, inspirada na obra de Marcel Breuer; Postal Mail, uma caixa de correio com texturização detalhada; Eero Saarinen Womb, inspirada na obra de Eero Saarinen; e um fone de ouvido.',
+    content: 'A Red Blue Chair, a MB Wassily, a Eero Saarinen Womb e o fone de ouvido foram feitos no 3DS Max, com renderização no Arnold. O Postal Mail foi feito no Blender, renderizado no Cycles e recebeu texturas criadas no Substance Painter. Esse último foi também um projeto para relembrar e retomar meus estudos no Blender, recordando o tempo em que era comum fazer animações na escola.',
     gallery: [
       {
-        id: 'img-01',
+        id: 'red-blue-chair-cover',
         type: 'image',
-        src: '/img/objetos/02_REDblueChair/render_3.jpg',
-        title: 'Render 01',
-        thumbnail: '/img/objetos/02_REDblueChair/render_3.jpg'
-      }
-    ]
-  },
-  {
-    id: 9,
-    slug: 'MBWassily',
-    title: 'MBWassily',
-    image: '/img/objetos/03_MBWassily/02_renders/1.jpg',
-    thumbnail: '/img/objetos/03_MBWassily/02_renders/1.jpg',
-    category: 'Objeto 3D',
-    location: '-',
-    year: 2026,
-    status: 'concluído',
-    description: 'Modelagem 3D de uma cadeira inspirada na obra de Marcel Breuer.',
-    content: 'Feita no 3DS Max, com renderização no Arnold.', 
-    gallery: [
-            {
-        id: 'img-01',
-        type: 'image',
-        src: '/img/objetos/03_MBWassily/02_renders/2.jpg',
-        title: 'Render 01',
-        thumbnail: '/img/objetos/03_MBWassily/02_renders/2.jpg'
-      }
-    ]
-  },
-  {
-    id: 10,
-    slug: 'Postal-Mail-Texture-Painting',
-    title: 'Postal Mail Texture Painting',
-    image: '/img/objetos/04_Post_Mail_Texture_Painting/1.png',
-    thumbnail: '/img/objetos/04_Post_Mail_Texture_Painting/1.png',
-    category: 'Objeto 3D',
-    location: '-',
-    year: 2025,
-    status: 'concluído',
-    description: 'Modelagem 3D de um objeto inspirado em uma caixa de correio, com texturização detalhada.',
-    content: 'Feita no Blender, renderização no Cycles, com texturas criadas no Substance Painter. Um outro projeto feito para relembrar e retomar meus estudos no Blender, relembrando do tempo em que era comum fazer animações na escola.',
-    gallery: [
-      {
-      id: 'vid-01',
-      type: 'video',
-      src: '/img/objetos/04_Post_Mail_Texture_Painting/05_DaVinci/final_07.mp4',
-      title: 'Cena de Movimento',
-      thumbnail: '/img/objetos/04_Post_Mail_Texture_Painting/1.png'
-      }
-    ]
-  },
-  {
-    id: 11,
-    slug: 'EeroSaarinenWomb',
-    title: 'Eero Saarinen Womb',
-    image: '/img/objetos/05_EeroSaarinenWomb/02_renders/1.jpg',
-    thumbnail: '/img/objetos/05_EeroSaarinenWomb/02_renders/1.jpg',
-    category: 'Objeto 3D',
-    location: '-',
-    year: 2026,
-    status: 'concluído',
-    description: 'Modelagem 3D de um objeto inspirado na obra de Eero Saarinen.',
-    content: 'Feita no 3DS Max, com renderização no Arnold.',
-    gallery: [
-      {
-      id: 'img-01',
-      type: 'image',
-      src: '/img/objetos/05_EeroSaarinenWomb/02_renders/2.jpg',
-      title: 'Render 01',
-      thumbnail: '/img/objetos/05_EeroSaarinenWomb/02_renders/2.jpg'
+        src: '/img/objetos/02_REDblueChair/render_5.jpg',
+        title: 'Red Blue Chair — Render 01',
+        thumbnail: '/img/objetos/02_REDblueChair/render_5.jpg'
       },
       {
-      id: 'img-02',
-      type: 'image',
-      src: '/img/objetos/05_EeroSaarinenWomb/02_renders/3.jpg',
-      title: 'Render 02',
-      thumbnail: '/img/objetos/05_EeroSaarinenWomb/02_renders/3.jpg'
-      }
-    ]
-  },
-  {
-    id: 12,
-    slug: 'earphone',
-    title: 'Earphone',
-    image: '/img/objetos/07_Earphone/02_renders/1.jpg',
-    thumbnail: '/img/objetos/07_Earphone/02_renders/1.jpg',
-    category: 'Objeto 3D',
-    location: '-',
-    year: 2026,
-    status: 'concluído',
-    description: 'Modelagem 3D de um fone de ouvido.',
-    content: 'Feita no 3DS Max, renderização no Arnold.',
-    gallery: [
+        id: 'red-blue-chair-02',
+        type: 'image',
+        src: '/img/objetos/02_REDblueChair/render_3.jpg',
+        title: 'Red Blue Chair — Render 02',
+        thumbnail: '/img/objetos/02_REDblueChair/render_3.jpg'
+      },
       {
-        id: 'img-01',
+        id: 'mb-wassily-cover',
+        type: 'image',
+        src: '/img/objetos/03_MBWassily/02_renders/1.jpg',
+        title: 'MB Wassily — Render 01',
+        thumbnail: '/img/objetos/03_MBWassily/02_renders/1.jpg'
+      },
+      {
+        id: 'mb-wassily-02',
+        type: 'image',
+        src: '/img/objetos/03_MBWassily/02_renders/2.jpg',
+        title: 'MB Wassily — Render 02',
+        thumbnail: '/img/objetos/03_MBWassily/02_renders/2.jpg'
+      },
+      {
+        id: 'postal-mail-cover',
+        type: 'image',
+        src: '/img/objetos/04_Post_Mail_Texture_Painting/1.png',
+        title: 'Postal Mail — Render',
+        thumbnail: '/img/objetos/04_Post_Mail_Texture_Painting/1.png'
+      },
+      {
+        id: 'postal-mail-video',
+        type: 'video',
+        src: '/img/objetos/04_Post_Mail_Texture_Painting/05_DaVinci/final_07.mp4',
+        title: 'Postal Mail — Cena de Movimento',
+        thumbnail: '/img/objetos/04_Post_Mail_Texture_Painting/1.png'
+      },
+      {
+        id: 'eero-saarinen-womb-cover',
+        type: 'image',
+        src: '/img/objetos/05_EeroSaarinenWomb/02_renders/1.jpg',
+        title: 'Eero Saarinen Womb — Render 01',
+        thumbnail: '/img/objetos/05_EeroSaarinenWomb/02_renders/1.jpg'
+      },
+      {
+        id: 'eero-saarinen-womb-02',
+        type: 'image',
+        src: '/img/objetos/05_EeroSaarinenWomb/02_renders/2.jpg',
+        title: 'Eero Saarinen Womb — Render 02',
+        thumbnail: '/img/objetos/05_EeroSaarinenWomb/02_renders/2.jpg'
+      },
+      {
+        id: 'eero-saarinen-womb-03',
+        type: 'image',
+        src: '/img/objetos/05_EeroSaarinenWomb/02_renders/3.jpg',
+        title: 'Eero Saarinen Womb — Render 03',
+        thumbnail: '/img/objetos/05_EeroSaarinenWomb/02_renders/3.jpg'
+      },
+      {
+        id: 'earphone-cover',
+        type: 'image',
+        src: '/img/objetos/07_Earphone/02_renders/1.jpg',
+        title: 'Earphone — Render 01',
+        thumbnail: '/img/objetos/07_Earphone/02_renders/1.jpg'
+      },
+      {
+        id: 'earphone-02',
         type: 'image',
         src: '/img/objetos/07_Earphone/02_renders/2.jpg',
-        title: 'Render 01',
+        title: 'Earphone — Render 02',
         thumbnail: '/img/objetos/07_Earphone/02_renders/2.jpg'
       }
     ]
@@ -416,6 +399,7 @@ export const projects = [
     image: '/img/arquitetura/07_Escola/IN PROGRESS.jpg',
     thumbnail: '/img/arquitetura/07_Escola/IN PROGRESS.jpg',
     category: 'edifício público',
+    projectType: 'projeto acadêmico',
     location: 'são paulo - sp',
     year: 2026,
     status: 'não concluído',
@@ -438,6 +422,7 @@ export const projects = [
     image: '/img/arquitetura/08_lele/explodida4.png',
     thumbnail: '/img/arquitetura/08_lele/explodida4.png',
     category: 'edifício público',
+    projectType: 'projeto acadêmico',
     location: 'abadiânia - go',
     year: 2025,
     status: 'concluído',
@@ -474,10 +459,90 @@ export const projects = [
       },
     ]
   },
+  {
+    id: 15,
+    slug: 'biblioteca-aml',
+    title: 'Biblioteca Alceu Amoroso Lima',
+    image: '/img/arquitetura/09_Biblioteca_AML/desenho_geral.png',
+    thumbnail: '/img/arquitetura/09_Biblioteca_AML/desenho_geral.png',
+    category: 'edifício público',
+    projectType: 'projeto acadêmico',
+    location: 'são paulo - sp',
+    year: 2026,
+    status: 'concluído',
+    description: 'Trabalho feito como parte do método avaliativo da disciplina de Conforto IV',
+    content: 'O trabalho contemplou uma nova abordagem de análise térmica a partir do uso de plugins do Rhinoceros como o LadyBug e o Honeybee. Enquanto isso, a modelagem do edifício foi feita a partir de plantas públicas, achadas em sites da internet, e modeladas no Sketchup, com base também nas medições feitas em campo. O projeto foi uma experiência muito enriquecedora e uma forte demonstração da capacidade desses plugnis.', 
+    gallery: [
+      {
+        id: 'pdf-01',
+        type: 'pdf',
+        src: '/img/arquitetura/09_Biblioteca_AML/analise_antes.pdf',
+        title: 'Análise Térmica Antes da Intervenção com Brises',
+        poster: '/img/arquitetura/09_Biblioteca_AML/analise_antes.pdf'
+      },
+      {
+        id: 'pdf-02',
+        type: 'pdf',
+        src: '/img/arquitetura/09_Biblioteca_AML/analise_depois.pdf',
+        title: 'Análise Térmica Depois da Intervenção com Brises',
+        poster: '/img/arquitetura/09_Biblioteca_AML/analise_depois.pdf'
+      },
+      {
+        id: 'img-01',
+        type: 'image',
+        src: '/img/arquitetura/09_Biblioteca_AML/desenho_geral.png',
+        title: 'Desenho Geral',
+        poster: '/img/arquitetura/09_Biblioteca_AML/desenho_geral.png'
+      },
+      {
+        id: 'img-02',
+        type: 'image',
+        src: '/img/arquitetura/09_Biblioteca_AML/building_3D_antes.png',
+        title: 'Building 3D Antes da Intervenção com Brises',
+        poster: '/img/arquitetura/09_Biblioteca_AML/building_3D_antes.png'
+      },
+      {
+        id: 'img-03',
+        type: 'image',
+        src: '/img/arquitetura/09_Biblioteca_AML/building_3D_depois.png',
+        title: 'Building 3D Depois da Intervenção com Brises',
+        poster: '/img/arquitetura/09_Biblioteca_AML/building_3D_depois.png'
+      },
+      {
+        id: 'img-04',
+        type: 'image',
+        src: '/img/arquitetura/09_Biblioteca_AML/corte_3D_antes.png',
+        title: 'Corte 3D Antes da Intervenção com Brises',
+        poster: '/img/arquitetura/09_Biblioteca_AML/corte_3D_antes.png'
+      },
+      {
+        id: 'img-05',
+        type: 'image',
+        src: '/img/arquitetura/09_Biblioteca_AML/corte_3D_depois.png',
+        title: 'Corte 3D Depois da Intervenção com Brises',
+        poster: '/img/arquitetura/09_Biblioteca_AML/corte_3D_depois.png'
+      },
+      {
+        id: 'img-06',
+        type: 'image',
+        src: '/img/arquitetura/09_Biblioteca_AML/termo_building.png',
+        title: 'Edifício sobre análise de incidência solar durante o ano todo',
+        poster: '/img/arquitetura/09_Biblioteca_AML/termo_building.png'
+      },
+      {
+        id: 'img-07',
+        type: 'image',
+        src: '/img/arquitetura/09_Biblioteca_AML/termo_building_2.png',
+        title: 'Edifício sobre análise de incidência solar durante o ano todo, ângulo 2',
+        poster: '/img/arquitetura/09_Biblioteca_AML/termo_building_2.png'
+      },
+    ]
+  },
 ]
 
 // Extrair categorias, localizações e anos únicos automaticamente
 export const getCategories = () => [...new Set(projects.map(p => p.category))].sort()
+export const getProjectTypes = () => [...new Set(projects.map(p => p.projectType))].sort()
 export const getLocations = () => [...new Set(projects.map(p => p.location))].filter(l => l && l !== '-').sort()
 export const getYears = () => [...new Set(projects.map(p => p.year))].sort((a, b) => b - a)
 export const getStatus = () => [...new Set(projects.map(p => p.status))]

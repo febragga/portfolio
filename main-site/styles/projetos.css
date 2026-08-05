@@ -333,7 +333,7 @@
 .project-meta {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   font-size: 0.72rem;
   color: var(--text-secondary);
   font-family: 'Orator Std', monospace;
@@ -341,12 +341,35 @@
   text-transform: uppercase;
 }
 
+.project-meta-labels {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.project-type {
+  padding: 3px 6px;
+  border: 1px solid color-mix(in srgb, var(--accent-blue-bright) 35%, transparent);
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--accent-blue-bright) 5%, transparent);
+  font-size: 0.65rem;
+  letter-spacing: 0.7px;
+}
+
 .project-category {
   font-weight: 500;
+  opacity: 0.72;
 }
 
 .project-year {
   opacity: 0.7;
+}
+
+.filter-section-featured {
+  padding: 12px;
+  border-left: 2px solid color-mix(in srgb, var(--accent-blue-bright) 50%, transparent);
+  background: color-mix(in srgb, var(--accent-blue-bright) 3%, transparent);
 }
 
 .no-projects {

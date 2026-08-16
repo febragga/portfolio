@@ -396,22 +396,29 @@ export const projects = [
     id: 13,
     slug: 'escola',
     title: 'Escola',
-    image: '/img/arquitetura/07_Escola/IN PROGRESS.jpg',
-    thumbnail: '/img/arquitetura/07_Escola/IN PROGRESS.jpg',
+    image: '/img/arquitetura/07_Escola/implantacao.png',
+    thumbnail: '/img/arquitetura/07_Escola/implantacao.png',
     category: 'edifício público',
     projectType: 'projeto acadêmico',
     location: 'são paulo - sp',
     year: 2026,
-    status: 'não concluído',
-    description: 'Trabalho em andamento para a disciplina AUP0193 - Optativa/Projeto IV',
-    content: 'Em progresso.', 
+    status: 'concluído',
+    description: 'Trabalho feito para a disciplina AUP0193 - Optativa/Projeto IV',
+    content: 'O trabalho contemplou diversas partes de execução: Pesquisa, Modelgem, Renderização, e design da prancha resumo. No ínicio, tivemos que pesquisar a documentação dos projetos padrões da FNDE e da FDE, para entender melhor como são projetadas as escolas em São Paulo, exigindo um nível de qualidade mínima de projeto. Infelizmente, por motivos que vão além do escopo da disciplina, o tempo de projeto foi relativamente pequeno para um programa relativamente complexo. Foi um grande desafio, mas foi uma ótima experiência de aprendizado, principalmente sobre o software Revit, onde foi realizado praticamente todo o projeto, e pós-editado no Photoshop.', 
     gallery: [
       {
         id: 'pdf-01',
         type: 'pdf',
-        src: '/img/arquitetura/07_Escola/base_reading/conjunto1.pdf',
+        src: '/img/arquitetura/07_Escola/conjunto1.pdf',
         title: 'Leitura de Território',
         poster: '/img/arquitetura/07_Escola/base_reading/conjunto1.pdf'
+      },
+      {
+        id: 'pdf-02',
+        type: 'pdf',
+        src: '/img/arquitetura/07_Escola/Entrega_Optativa_Final_R00.pdf',
+        title: 'Entrega Final',
+        poster: '/img/arquitetura/07_Escola/Entrega_Optativa_Final_R00.pdf'
       }
     ]
   },
@@ -536,6 +543,50 @@ export const projects = [
         title: 'Edifício sobre análise de incidência solar durante o ano todo, ângulo 2',
         poster: '/img/arquitetura/09_Biblioteca_AML/termo_building_2.png'
       },
+    ]
+  },
+  {
+    id: 16,
+    slug: 'projeto-da-paisagem',
+    title: 'Projeto da Paisagem',
+    image: '/img/arquitetura/10_Projeto_da_Paisagem/PROJETO PROPOSTA AREA 4-CORTE_POS_EDT.png',
+    thumbnail: '/img/arquitetura/10_Projeto_da_Paisagem/PROJETO PROPOSTA AREA 4-CORTE_POS_EDT.png',
+    category: 'paisagismo',
+    projectType: 'projeto acadêmico',
+    location: 'são paulo - sp',
+    year: 2026,
+    status: 'concluído',
+    description: 'Projeto desenvolvido para a disciplina de Planejamento Urbano e Projeto da Paisagem.',
+    content: 'Minha participação no processo concentrou-se no desenvolvimento das platas e cortes e do TensoGen, um script em Python para Grasshopper que gera tensoestruturas para serem inseridas no parque. O corte foi desenhado no CAD a partir do perfil do terreno obtido com dados LiDAR e, posteriormente, recebeu pós-edição no Photoshop. Além das tensoesctructuras, o projeto contava com a consolidação de caminhos pré-existentes (caminhos do desejo), e também a elaboração de espelhos d\'águas e tobogãs de concreto como forma alternativa da rampa.',
+    gallery: [
+      {
+        id: 'img-01',
+        type: 'image',
+        src: '/img/arquitetura/10_Projeto_da_Paisagem/PROJETO PROPOSTA AREA 4-PLANTA.png',
+        title: 'Planta da Proposta',
+        thumbnail: '/img/arquitetura/10_Projeto_da_Paisagem/PROJETO PROPOSTA AREA 4-PLANTA.png'
+      },
+      {
+        id: 'img-02',
+        type: 'image',
+        src: '/img/arquitetura/10_Projeto_da_Paisagem/PROJETO PROPOSTA AREA 4-CORTE_POS_EDT.png',
+        title: 'Corte da Proposta',
+        thumbnail: '/img/arquitetura/10_Projeto_da_Paisagem/PROJETO PROPOSTA AREA 4-CORTE_POS_EDT.png'
+      },
+      {
+        id: 'img-03',
+        type: 'image',
+        src: '/img/arquitetura/10_Projeto_da_Paisagem/TensoGen_gh.png',
+        title: 'TensoGen - Script no Grasshopper',
+        thumbnail: '/img/arquitetura/10_Projeto_da_Paisagem/TensoGen_gh.png'
+      },
+      {
+        id: 'img-04',
+        type: 'image',
+        src: '/img/arquitetura/10_Projeto_da_Paisagem/TensoGen_output.png',
+        title: 'TensoGen - Resultado',
+        thumbnail: '/img/arquitetura/10_Projeto_da_Paisagem/TensoGen_output.png'
+      }
     ]
   },
 ]

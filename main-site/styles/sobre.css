@@ -337,3 +337,47 @@
     justify-self: start;
   }
 }
+
+@media (min-width: 1920px) {
+  .about-hero__title h1 {
+    font-size: clamp(9.5rem, 5.2vw, 12rem);
+  }
+
+  .about-hero__intro p {
+    max-width: 52ch;
+    font-size: clamp(2rem, 1vw, 2.3rem);
+  }
+
+  .about-section-title h2 {
+    font-size: clamp(7rem, 3.8vw, 9rem);
+  }
+
+  .trajectory-entry__year > span {
+    font-size: clamp(8.5rem, 4.6vw, 11rem);
+  }
+
+  .trajectory-entry__copy h3 {
+    font-size: clamp(5rem, 2.6vw, 6.25rem);
+  }
+
+  .trajectory-entry__copy p {
+    max-width: 60ch;
+    font-size: clamp(1.18rem, 0.58vw, 1.3rem);
+  }
+
+  .capability-row h3 {
+    font-size: clamp(2.7rem, 1.4vw, 3.4rem);
+  }
+
+  .capability-row p {
+    font-size: clamp(1.3rem, 0.68vw, 1.6rem);
+  }
+
+  .certificate-row {
+    min-height: clamp(118px, 7vh, 148px);
+  }
+
+  .certificate-row h3 {
+    font-size: clamp(2.1rem, 1.1vw, 2.65rem);
+  }
+}

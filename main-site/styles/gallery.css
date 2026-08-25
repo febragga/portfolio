@@ -555,3 +555,53 @@ body.media-locked {
     top: 0.75rem;
   }
 }
+
+@media (min-width: 1920px) {
+  .atlas-gallery__heading h2 {
+    font-size: clamp(8rem, 4.2vw, 10rem);
+  }
+
+  .atlas-media {
+    height: clamp(900px, 68vh, 1320px);
+  }
+
+  .atlas-gallery__controlbar {
+    min-height: clamp(116px, 7vh, 148px);
+  }
+
+  .atlas-gallery__caption-number {
+    font-size: clamp(3rem, 1.5vw, 3.6rem);
+  }
+
+  .atlas-gallery__caption h3 {
+    font-size: clamp(1.6rem, 0.85vw, 2rem);
+  }
+
+  .atlas-gallery__index {
+    grid-template-columns: repeat(auto-fill, minmax(112px, 1fr));
+    gap: clamp(0.7rem, 0.5vw, 1rem);
+  }
+
+  .atlas-gallery__action,
+  .atlas-gallery__copy,
+  .atlas-lightbox__header button,
+  .atlas-drawing-hint,
+  .atlas-lightbox__footer .atlas-drawing-reset {
+    font-size: clamp(0.72rem, 0.4vw, 0.8rem);
+  }
+
+  .atlas-lightbox__header,
+  .atlas-lightbox__footer {
+    min-height: clamp(68px, 4.2vh, 88px);
+  }
+
+  .atlas-gallery__navigation button,
+  .atlas-lightbox__footer button {
+    width: clamp(48px, 2.6vw, 56px);
+    height: clamp(48px, 2.6vw, 56px);
+  }
+
+  .atlas-lightbox__media .atlas-pdf {
+    width: min(1600px, 100%);
+  }
+}

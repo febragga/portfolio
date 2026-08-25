@@ -563,3 +563,51 @@
     overflow-wrap: anywhere;
   }
 }
+
+@media (min-width: 1920px) {
+  .home-intro__signature {
+    width: clamp(250px, 8vw, 304px);
+  }
+
+  .home-intro h1 {
+    font-size: clamp(5.8rem, 3vw, 7.5rem);
+  }
+
+  .home-intro p {
+    font-size: clamp(1.2rem, 0.65vw, 1.4rem);
+  }
+
+  .featured-project {
+    min-height: min(880px, 76vh);
+  }
+
+  .featured-project__caption h2 {
+    font-size: clamp(5.2rem, 3vw, 7.5rem);
+  }
+
+  .home-section-header__title h2,
+  .home-about h2,
+  .home-contact h2 {
+    font-size: clamp(6.6rem, 3.6vw, 8.75rem);
+  }
+
+  .selected-project__caption h3 {
+    font-size: clamp(2.1rem, 1.1vw, 2.75rem);
+  }
+
+  .archive-entry__number {
+    font-size: clamp(18rem, 9vw, 22rem);
+  }
+
+  .archive-entry h2 {
+    font-size: clamp(5rem, 2.8vw, 6.75rem);
+  }
+
+  .home-about__copy p {
+    font-size: clamp(1.45rem, 0.7vw, 1.65rem);
+  }
+
+  .home-contact__email {
+    font-size: clamp(1.5rem, 0.8vw, 1.8rem);
+  }
+}

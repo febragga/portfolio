@@ -201,3 +201,35 @@
     letter-spacing: -0.025em;
   }
 }
+
+@media (min-width: 1920px) {
+  .contact-hero__title h1 {
+    font-size: clamp(14rem, 7vw, 18rem);
+  }
+
+  .contact-hero__intro p {
+    max-width: 38ch;
+    font-size: clamp(1.55rem, 0.8vw, 1.85rem);
+  }
+
+  .contact-hero__email {
+    min-height: clamp(70px, 4.5vh, 96px);
+    font-size: clamp(1.8rem, 0.95vw, 2.25rem);
+  }
+
+  .contact-section-title h2 {
+    font-size: clamp(6.5rem, 3.6vw, 8.5rem);
+  }
+
+  .contact-row {
+    min-height: clamp(130px, 8vh, 170px);
+  }
+
+  .contact-row strong {
+    font-size: clamp(3.3rem, 1.75vw, 4.2rem);
+  }
+
+  .contact-location__places span {
+    font-size: clamp(5.5rem, 3vw, 7.25rem);
+  }
+}

@@ -632,3 +632,41 @@ html.archive-reorganizing::view-transition-group(*) {
     padding-left: calc(1.2rem + 0.65rem);
   }
 }
+
+@media (min-width: 1920px) {
+  .archive-hero {
+    min-height: clamp(680px, 38vh, 860px);
+  }
+
+  .archive-hero__title h1 {
+    font-size: clamp(13rem, 7vw, 17rem);
+  }
+
+  .archive-hero__title p {
+    font-size: clamp(1.3rem, 0.7vw, 1.5rem);
+  }
+
+  .archive-hero__count > span {
+    font-size: clamp(9.5rem, 5vw, 12rem);
+  }
+
+  .archive-filters {
+    padding-right: clamp(2rem, 1.5vw, 3rem);
+  }
+
+  .archive-filter__option {
+    font-size: clamp(0.8rem, 0.44vw, 0.94rem);
+  }
+
+  .archive-card__info h2 {
+    font-size: clamp(2.1rem, 1.1vw, 2.75rem);
+  }
+
+  .archive-projects--list .archive-card {
+    padding-block: clamp(1.25rem, 0.8vw, 1.75rem);
+  }
+
+  .archive-empty h2 {
+    font-size: clamp(4rem, 2.2vw, 5.25rem);
+  }
+}

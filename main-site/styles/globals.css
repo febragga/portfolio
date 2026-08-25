@@ -492,6 +492,86 @@ select:focus-visible,
   }
 }
 
+/* Large-screen scale layer: preserve the desktop system and release its caps only
+   when the CSS viewport has enough room for a wider editorial composition. */
+@media (min-width: 1920px) {
+  :root {
+    --grid-max: min(1900px, calc(100vw - 6rem));
+    --gutter: clamp(4rem, 3vw, 5rem);
+    --grid-gap: clamp(2rem, 1.6vw, 2.5rem);
+    --section-space: clamp(10rem, 8vh, 12rem);
+    --header-height: 100px;
+  }
+
+  .technical-label {
+    font-size: 0.78rem;
+  }
+
+  .site-brand__mark {
+    width: 1.125rem;
+    height: 1.125rem;
+  }
+
+  .site-brand__name,
+  .site-nav__link {
+    font-size: 0.75rem;
+  }
+
+  .site-nav__number {
+    font-size: 0.62rem;
+  }
+
+  .system-state__code {
+    font-size: clamp(19rem, 10vw, 24rem);
+  }
+
+  .system-state__content h1 {
+    max-width: 1050px;
+    font-size: clamp(8rem, 4.5vw, 10.5rem);
+  }
+
+  .system-state__content p {
+    max-width: 720px;
+    font-size: clamp(1.3rem, 0.7vw, 1.5rem);
+  }
+
+  .site-footer__grid {
+    min-height: clamp(280px, 15vh, 360px);
+  }
+
+  .site-footer__signature {
+    width: clamp(150px, 5vw, 190px);
+  }
+}
+
+@media (min-width: 2560px) {
+  :root {
+    --grid-max: min(2400px, 80vw);
+    --gutter: clamp(5rem, 2.5vw, 6rem);
+    --grid-gap: clamp(2.5rem, 1.25vw, 3rem);
+    --section-space: clamp(12rem, 9vh, 14rem);
+    --header-height: 112px;
+  }
+
+  .technical-label {
+    font-size: 0.82rem;
+  }
+
+  .site-brand__mark {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  .site-brand__name,
+  .site-nav__link {
+    font-size: 0.78rem;
+  }
+
+  .site-nav__number {
+    font-size: 0.65rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

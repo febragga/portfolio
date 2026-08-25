@@ -438,3 +438,57 @@
     display: none;
   }
 }
+
+@media (min-width: 1920px) {
+  .case-number {
+    font-size: clamp(11rem, 5.2vw, 13rem);
+  }
+
+  .case-title-block h1 {
+    font-size: clamp(11rem, 6vw, 15rem);
+  }
+
+  .case-meta dt,
+  .case-meta dd,
+  .case-back {
+    font-size: clamp(0.72rem, 0.4vw, 0.84rem);
+  }
+
+  .case-hero {
+    max-width: calc(var(--grid-max) + 8vw);
+  }
+
+  .case-hero__media {
+    height: clamp(900px, 67vh, 1320px);
+    min-height: 720px;
+  }
+
+  .case-intro__lead h2 {
+    font-size: clamp(5.2rem, 3vw, 7rem);
+  }
+
+  .case-study--object .case-intro__lead h2 {
+    font-size: clamp(4.3rem, 2.5vw, 6rem);
+  }
+
+  .case-intro__text p {
+    max-width: 66ch;
+    font-size: clamp(1.25rem, 0.64vw, 1.38rem);
+  }
+
+  .case-pagination__item {
+    min-height: clamp(500px, 25vw, 640px);
+  }
+
+  .case-pagination__item strong {
+    font-size: clamp(4.4rem, 2.4vw, 5.75rem);
+  }
+
+  .case-pagination__item--previous strong {
+    font-size: clamp(3.2rem, 1.8vw, 4.3rem);
+  }
+
+  .case-contact h2 {
+    font-size: clamp(7rem, 3.8vw, 9rem);
+  }
+}

@@ -1,296 +1,138 @@
-'use client';
+import '@/styles/sobre.css'
+import { pageMetadata } from '@/lib/site'
 
-import { useEffect, useRef } from 'react';
-import '@/styles/sobre.css';
+const trajectory = [
+  {
+    year: '2018',
+    title: 'IFTM',
+    subtitle: 'Computação Gráfica',
+    description: 'Nasci em Uberlândia. Em 2018 realizei o exame para ingresso no Curso de Computação Gráfica integrado ao Ensino Médio do Instituto Federal do Triângulo Mineiro (IFTM), formando-me em 2020. Foram anos de muito aprendizado em programação, modelagem 3D e design.',
+    image: '/database/images/iftm-horizontal-uberlandiacentro.png',
+    fit: 'contain',
+    logoWidth: '88%',
+  },
+  {
+    year: '2020',
+    title: 'UFSCar',
+    subtitle: 'Física',
+    description: 'Após o ensino médio, cursei brevemente física na Universidade Federal de São Carlos (UFSCar). Em 2023, percebi que sentia falta das atividades técnicas que realizava durante o curso, como programação e modelagem 3D.',
+    image: '/database/images/Ufscar-logo.png',
+    fit: 'contain',
+    logoWidth: '54%',
+  },
+  {
+    year: '2023',
+    title: 'USP',
+    subtitle: 'Arquitetura e Urbanismo',
+    description: 'Sendo assim, ingressei na Universidade de São Paulo (USP), na capital, onde resido e curso atualmente Arquitetura e Urbanismo. Uma decisão que combina minha paixão por design com a visão de futuro.',
+  },
+]
+
+const capabilities = [
+  { index: '01', title: 'Projeto & BIM', tools: 'ArchiCAD · Revit · AutoCAD · SketchUp · Rhino' },
+  { index: '02', title: 'Modelagem & Visualização', tools: 'Blender · 3ds Max · V-Ray · Enscape' },
+  { index: '03', title: 'Representação', tools: 'Photoshop · Illustrator · InDesign' },
+  { index: '04', title: 'Território & Mídia', tools: 'QGIS · Premiere Pro · After Effects' },
+]
+
+const certificates = [
+  { index: '01', name: 'Certificado Método Cura', issuer: 'Curso Cura', date: '28 de setembro de 2025', href: '/docs/certificado-metodo-cura.pdf' },
+  { index: '02', name: 'Certificado Archicad Cura', issuer: 'Curso Cura', date: '22 de fevereiro de 2026', href: '/docs/certificado-archicad-cura.pdf' },
+  { index: '03', name: 'Curriculum Vitae', issuer: 'Atualizado em', date: '25 de fevereiro de 2026', href: '/docs/CV.pdf' },
+]
+
+export const metadata = pageMetadata({
+  title: 'Sobre',
+  description: 'Trajetória, formação e capacidades de Fernando Braga entre arquitetura, computação gráfica, modelagem e representação.',
+  path: '/sobre',
+})
 
 export default function Sobre() {
-  const canvasRef = useRef(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const ctx = canvas.getContext('2d');
-    let animationFrameId;
-
-    const setCanvasSize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-
-    setCanvasSize();
-    window.addEventListener('resize', setCanvasSize);
-
-    const particles = [];
-    const particleCount = 30;
-
-    for (let i = 0; i < particleCount; i++) {
-      particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        size: Math.random() * 1.5 + 0.5,
-        speedX: (Math.random() - 0.5) * 0.3,
-        speedY: (Math.random() - 0.5) * 0.3,
-        opacity: Math.random() * 0.2 + 0.05,
-      });
-    }
-
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      particles.forEach((particle) => {
-        particle.x += particle.speedX;
-        particle.y += particle.speedY;
-
-        if (particle.x < 0 || particle.x > canvas.width) particle.speedX *= -1;
-        if (particle.y < 0 || particle.y > canvas.height) particle.speedY *= -1;
-
-        ctx.beginPath();
-        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(74, 127, 255, ${particle.opacity})`;
-        ctx.fill();
-      });
-
-      particles.forEach((particle, i) => {
-        particles.slice(i + 1).forEach((otherParticle) => {
-          const dx = particle.x - otherParticle.x;
-          const dy = particle.y - otherParticle.y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-
-          if (distance < 100) {
-            ctx.beginPath();
-            ctx.moveTo(particle.x, particle.y);
-            ctx.lineTo(otherParticle.x, otherParticle.y);
-            ctx.strokeStyle = `rgba(74, 127, 255, ${0.1 * (1 - distance / 100)})`;
-            ctx.lineWidth = 0.5;
-            ctx.stroke();
-          }
-        });
-      });
-
-      animationFrameId = requestAnimationFrame(animate);
-    };
-
-    animate();
-
-    return () => {
-      window.removeEventListener('resize', setCanvasSize);
-      cancelAnimationFrame(animationFrameId);
-    };
-  }, []);
-
-  const trajectoryData = [
-    {
-      id: 0,
-      year: '2018',
-      title: 'IFTM',
-      subtitle: 'Computação Gráfica',
-      description: 'Nasci em Uberlândia. Em 2018 realizei o exame para ingresso no Curso de Computação Gráfica integrado ao Ensino Médio do Instituto Federal do Triângulo Mineiro (IFTM), formando-se em 2020. Foram anos de muito aprendizado em programação, modelagem 3D e design.',
-      imageUrl: '/database/images/iftm-horizontal-uberlandiacentro.png',
-      imageMode: 'contain'
-    },
-    {
-      id: 1,
-      year: '2020',
-      title: 'UFSCar',
-      subtitle: 'Física',
-      description: 'Após o ensino médio, cursei brevemente física na Universidade Federal de São Carlos (UFSCar). Em 2023, percebi que sentia falta das atividades técnicas que realizava durante o curso, como programação e modelagem 3D.',
-      imageUrl: '/database/images/Ufscar-logo.png',
-      imageMode: 'contain'
-    },
-    {
-      id: 2,
-      year: '2023',
-      title: 'USP',
-      subtitle: 'Arquitetura e Urbanismo',
-      description: 'Sendo assim, ingressei na Universidade de São Paulo (USP), na capital, onde resido e curso atualmente Arquitetura e Urbanismo. Uma decisão que combina minha paixão por design com a visão de futuro.',
-      imageUrl: '/database/images/profile_photo1.jpeg',
-      imageMode: 'cover'
-    }
-  ];
-
-  const skills = [
-    { name: 'Blender', proficiency: 90 },
-    { name: '3ds Max', proficiency: 75 },
-    { name: 'Photoshop', proficiency: 85 },
-    { name: 'Illustrator', proficiency: 80 },
-    { name: 'InDesign', proficiency: 90 },
-    { name: 'SketchUp', proficiency: 85 },
-    { name: 'V-Ray', proficiency: 90 },
-    { name: 'Enscape', proficiency: 91 },
-    { name: 'QGIS', proficiency: 90 },
-    { name: 'ArchiCAD', proficiency: 85 },
-    { name: 'Revit', proficiency: 70 },
-    { name: 'AutoCAD', proficiency: 90 },
-    { name: 'Rhino', proficiency: 75 },
-    { name: 'Premiere Pro', proficiency: 60 },
-    { name: 'After Effects', proficiency: 72 },
-  ];
-
-  const certificates = [
-    {
-      id: 1,
-      name: 'Certificado Método Cura',
-      issuer: 'Curso Cura',
-      date: '28 de Setembro de 2025',
-      pdfUrl: '/docs/certificado-metodo-cura.pdf',
-    },
-    {
-      id: 2,
-      name: 'Certificado Archicad Cura',
-      issuer: 'Curso Cura',
-      date: '22 de Fevereiro de 2026',
-      pdfUrl: '/docs/certificado-archicad-cura.pdf',
-    },
-    {
-      id: 3,
-      name: 'Curriculum Vitae',
-      issuer: 'Atualizado em:',
-      date: '25 de Fevereiro de 2026',
-      pdfUrl: '/docs/CV.pdf',
-    },
-  ];
-
   return (
-    <main className="sobre-section">
-      <canvas ref={canvasRef} className="sobre-canvas" />
-      
-      <div className="sobre-content">
-        {/* TRAJECTORY SECTION */}
-        <div className="trajectory-section">
-          <div className="section-header">
-            <div className="section-title-visual">
-              <div className="section-square" />
-              <h2>Trajetória</h2>
-            </div>
-            <div className="section-line" />
-          </div>
+    <main id="conteudo" className="about-page">
+      <section className="about-hero site-grid grid-12">
+        <span className="about-hero__index technical-label technical-label--blue section-index">02 · Sobre</span>
+        <div className="about-hero__title">
+          <h1>Arquitetura como encontro entre matéria e sistema.</h1>
+        </div>
+        <figure className="about-hero__portrait">
+          <img src="/database/images/profile_photo1.jpeg" alt="Fernando Braga" />
+          <figcaption className="technical-label">São Paulo · 2026</figcaption>
+        </figure>
+        <div className="about-hero__intro">
+          <p>
+            Sou Fernando Braga, estudante de Arquitetura e Urbanismo na Universidade de São Paulo. Minha trajetória começou na computação gráfica e segue atravessando projeto, modelagem, representação e visualização.
+          </p>
+        </div>
+      </section>
 
-          <div className="trajectory-grid">
-            {trajectoryData.map((item, index) => (
-              <div 
-                key={item.id} 
-                className="trajectory-card"
-                style={{ '--delay': index * 0.15 + 's' }}
-              >
-                <div className="trajectory-year">{item.year}</div>
-                <div className="trajectory-image-wrapper">
-                  {item.imageUrl && (
-                    <img 
-                      src={item.imageUrl} 
-                      alt={item.title}
-                      className="trajectory-image"
-                      style={{ objectFit: item.imageMode }}
-                    />
-                  )}
-                  <div className="trajectory-overlay" />
-                </div>
-                <div className="trajectory-info">
-                  <h3 className="trajectory-title">{item.title}</h3>
-                  <p className="trajectory-subtitle">{item.subtitle}</p>
-                  <p className="trajectory-description">{item.description}</p>
-                </div>
+      <section className="about-trajectory site-grid" aria-labelledby="trajectory-title">
+        <header className="about-section-title grid-12">
+          <span className="technical-label section-index">01 · Formação</span>
+          <h2 id="trajectory-title">Trajetória</h2>
+        </header>
+
+        <div className="trajectory-list">
+          {trajectory.map((item, index) => (
+            <article className={`trajectory-entry grid-12 ${!item.image ? 'trajectory-entry--textual' : ''}`} key={item.year}>
+              <div className="trajectory-entry__year">
+                <span>{item.year}</span>
+                <small className="technical-label">{String(index + 1).padStart(2, '0')} / 03</small>
+              </div>
+              {item.image && (
+                <figure className="trajectory-entry__visual">
+                  <img src={item.image} alt={item.title} style={{ objectFit: item.fit, width: item.logoWidth, height: 'auto' }} loading="lazy" decoding="async" />
+                </figure>
+              )}
+              <div className="trajectory-entry__copy">
+                <span className="technical-label technical-label--blue">{item.subtitle}</span>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="about-capabilities" aria-labelledby="capabilities-title">
+        <div className="site-grid">
+          <header className="about-section-title grid-12">
+            <span className="technical-label section-index">02 · Capacidades</span>
+            <h2 id="capabilities-title">Ferramentas organizadas por prática, não por porcentagem.</h2>
+          </header>
+
+          <div className="capabilities-list">
+            {capabilities.map((capability) => (
+              <div className="capability-row" key={capability.index}>
+                <span className="technical-label technical-label--blue">{capability.index}</span>
+                <h3>{capability.title}</h3>
+                <p>{capability.tools}</p>
               </div>
             ))}
           </div>
         </div>
+      </section>
 
-        {/* SKILLS SECTION */}
-        <div className="skills-section">
-          <div className="section-header">
-            <div className="section-title-visual">
-              <div className="section-square" />
-              <h3 className="section-title">Skills & Softwares</h3>
-            </div>
-            <div className="section-line" />
-          </div>
-          
-          <div className="skills-grid">
-            {skills.map((skill, index) => (
-              <div 
-                key={skill.name}
-                className="skill-card"
-                style={{ '--delay': index * 0.05 + 's' }}
-              >
-                <div className="skill-header">
-                  <h4 className="skill-name">{skill.name}</h4>
-                  <span className="skill-percentage">{skill.proficiency}%</span>
-                </div>
-                <div className="skill-bar-container">
-                  <div 
-                    className="skill-bar"
-                    style={{ '--width': `${skill.proficiency}%` }}
-                  >
-                    <div className="skill-bar-fill"></div>
-                  </div>
-                </div>
+      <section className="about-certificates site-grid" aria-labelledby="certificates-title">
+        <header className="about-section-title grid-12">
+          <span className="technical-label section-index">03 · Documentos</span>
+          <h2 id="certificates-title">Certificados & currículo</h2>
+        </header>
+
+        <div className="certificate-list">
+          {certificates.map((certificate) => (
+            <a className="certificate-row" href={certificate.href} target="_blank" rel="noreferrer" key={certificate.index}>
+              <span className="technical-label technical-label--blue">{certificate.index}</span>
+              <h3>{certificate.name}</h3>
+              <div className="technical-label">
+                <span>{certificate.issuer}</span>
+                <span>{certificate.date}</span>
               </div>
-            ))}
-          </div>
+              <span className="certificate-row__action">Abrir ↗</span>
+            </a>
+          ))}
         </div>
-
-        {/* CERTIFICADOS SECTION */}
-        <div className="certificates-section">
-          <div className="section-header">
-            <div className="section-title-visual">
-              <div className="section-square" />
-              <h3 className="section-title">Certificados & Credenciais</h3>
-            </div>
-            <div className="section-line" />
-          </div>
-
-          {certificates.length > 0 ? (
-            <div className="certificates-grid">
-              {certificates.map((cert, index) => (
-                <div 
-                  key={cert.id}
-                  className="certificate-card"
-                  style={{ '--delay': index * 0.1 + 's' }}
-                >
-                  <div className="certificate-thumbnail">
-                    {cert.thumbnail ? (
-                      <img src={cert.thumbnail} alt={cert.name} />
-                    ) : (
-                      <div className="certificate-icon">📄</div>
-                    )}
-                    <div className="certificate-overlay">
-                      <a
-                        href={cert.pdfUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="overlay-button"
-                        title={`Abrir ${cert.name}`}
-                      >
-                        Visualizar
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="certificate-content">
-                    <h4 className="certificate-name">{cert.name}</h4>
-                    <p className="certificate-issuer">{cert.issuer}</p>
-                    <span className="certificate-date">{cert.date}</span>
-                    
-                    <a
-                      href={cert.pdfUrl}
-                      download
-                      className="certificate-link"
-                      title={`Baixar ${cert.name}`}
-                    >
-                      ⬇️ Baixar PDF
-                    </a>
-                  </div>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div className="certificates-empty">
-              <div className="empty-icon">📜</div>
-              <p className="empty-text">Nenhum certificado adicionado ainda</p>
-            </div>
-          )}
-        </div>
-      </div>
+      </section>
     </main>
-  );
+  )
 }

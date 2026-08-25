@@ -1,155 +1,68 @@
-'use client';
+import '@/styles/contato.css'
+import { pageMetadata } from '@/lib/site'
 
-import { useEffect, useRef } from 'react';
-import '@/styles/contato.css';
+export const metadata = pageMetadata({
+  title: 'Contato',
+  description: 'Contato profissional de Fernando Braga para projetos, oportunidades e colaborações em arquitetura e representação.',
+  path: '/contato',
+})
+
+const contactLinks = [
+  { index: '01', label: 'E-mail', value: 'contato@fernandobragaportfolio.com.br', href: 'mailto:contato@fernandobragaportfolio.com.br' },
+  { index: '02', label: 'Telefone', value: '(11) 91774-4243', href: 'tel:+5511917744243' },
+  { index: '03', label: 'Instagram', value: '@inf_bragga', href: 'https://www.instagram.com/inf_bragga' },
+  { index: '04', label: 'LinkedIn', value: '/in/fe-braga-arq', href: 'https://www.linkedin.com/in/fe-braga-arq' },
+]
 
 export default function Contato() {
-  const canvasRef = useRef(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const ctx = canvas.getContext('2d');
-    let animationFrameId;
-
-    const setCanvasSize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-
-    setCanvasSize();
-    window.addEventListener('resize', setCanvasSize);
-
-    const particles = [];
-    const particleCount = 25;
-
-    for (let i = 0; i < particleCount; i++) {
-      particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        size: Math.random() * 1.5 + 0.5,
-        speedX: (Math.random() - 0.5) * 0.3,
-        speedY: (Math.random() - 0.5) * 0.3,
-        opacity: Math.random() * 0.2 + 0.05,
-      });
-    }
-
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      particles.forEach((particle) => {
-        particle.x += particle.speedX;
-        particle.y += particle.speedY;
-
-        if (particle.x < 0 || particle.x > canvas.width) particle.speedX *= -1;
-        if (particle.y < 0 || particle.y > canvas.height) particle.speedY *= -1;
-
-        ctx.beginPath();
-        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(74, 127, 255, ${particle.opacity})`;
-        ctx.fill();
-      });
-
-      particles.forEach((particle, i) => {
-        particles.slice(i + 1).forEach((otherParticle) => {
-          const dx = particle.x - otherParticle.x;
-          const dy = particle.y - otherParticle.y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-
-          if (distance < 100) {
-            ctx.beginPath();
-            ctx.moveTo(particle.x, particle.y);
-            ctx.lineTo(otherParticle.x, otherParticle.y);
-            ctx.strokeStyle = `rgba(74, 127, 255, ${0.1 * (1 - distance / 100)})`;
-            ctx.lineWidth = 0.5;
-            ctx.stroke();
-          }
-        });
-      });
-
-      animationFrameId = requestAnimationFrame(animate);
-    };
-
-    animate();
-
-    return () => {
-      window.removeEventListener('resize', setCanvasSize);
-      cancelAnimationFrame(animationFrameId);
-    };
-  }, []);
-
   return (
-    <main className="contato-container">
-      <canvas ref={canvasRef} className="contato-canvas" />
-      
-      <div className="contato-content">
-        <div className="contato-header">
-          <div className="contato-title-visual">
-            <div className="title-square" />
-            <h2>Contato</h2>
-          </div>
-          <div className="contato-line" />
+    <main id="conteudo" className="contact-page">
+      <section className="contact-hero site-grid grid-12">
+        <span className="contact-hero__index technical-label technical-label--blue section-index">03 · Contato</span>
+        <div className="contact-hero__title">
+          <h1>Vamos conversar.</h1>
         </div>
-
-        <div className="contato-grid">
-          <div className="contact-item" style={{ '--delay': '0.1s' }}>
-            <div className="contact-icon-wrapper">
-              <div className="contact-icon-square" />
-            </div>
-            <div className="contact-info">
-              <span className="contact-label">E-mail</span>
-              <a href="mailto:contato@fernandobragaportfolio.com.br" className="contact-value">
-                contato@fernandobragaportfolio.com.br
-              </a>
-            </div>
-          </div>
-
-          <div className="contact-item" style={{ '--delay': '0.2s' }}>
-            <div className="contact-icon-wrapper">
-              <div className="contact-icon-square" />
-            </div>
-            <div className="contact-info">
-              <span className="contact-label">Telefone</span>
-              <span className="contact-value">(11) 91774-4243</span>
-            </div>
-          </div>
-
-          <div className="contact-item" style={{ '--delay': '0.3s' }}>
-            <div className="contact-icon-wrapper">
-              <div className="contact-icon-square" />
-            </div>
-            <div className="contact-info">
-              <span className="contact-label">Instagram</span>
-              <a 
-                href="https://instagram.com/inf_bragga" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="contact-value"
-              >
-                @inf_bragga
-              </a>
-            </div>
-          </div>
-
-          <div className="contact-item" style={{ '--delay': '0.4s' }}>
-            <div className="contact-icon-wrapper">
-              <div className="contact-icon-square" />
-            </div>
-            <div className="contact-info">
-              <span className="contact-label">LinkedIn</span>
-              <a 
-                href="https://www.linkedin.com/in/fe-braga-arq/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="contact-value"
-              >
-                /in/fe-braga-arq
-              </a>
-            </div>
-          </div>
+        <div className="contact-hero__intro">
+          <p>Projetos, oportunidades, colaborações ou uma conversa sobre arquitetura e representação.</p>
         </div>
-      </div>
+        <a className="contact-hero__email" href="mailto:contato@fernandobragaportfolio.com.br">
+          <span>contato@fernandobragaportfolio.com.br</span>
+          <span aria-hidden="true">↗</span>
+        </a>
+      </section>
+
+      <section className="contact-index site-grid" aria-labelledby="contact-index-title">
+        <header className="contact-section-title grid-12">
+          <span className="technical-label section-index">01 · Canais</span>
+          <h2 id="contact-index-title">Contato direto</h2>
+        </header>
+
+        <div className="contact-list">
+          {contactLinks.map((item) => (
+            <a
+              className="contact-row"
+              href={item.href}
+              target={item.href.startsWith('http') ? '_blank' : undefined}
+              rel={item.href.startsWith('http') ? 'noreferrer' : undefined}
+              key={item.index}
+            >
+              <span className="technical-label technical-label--blue">{item.index}</span>
+              <span className="technical-label">{item.label}</span>
+              <strong>{item.value}</strong>
+              <span aria-hidden="true">↗</span>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section className="contact-location site-grid grid-12">
+        <span className="technical-label section-index">02 · Localização</span>
+        <div className="contact-location__places">
+          <span>Uberlândia — MG</span>
+          <span>São Paulo — SP</span>
+        </div>
+        <span className="contact-location__coordinate technical-label">18°55′S / 48°16′W<br />23°33′S / 46°38′W</span>
+      </section>
     </main>
-  );
+  )
 }
